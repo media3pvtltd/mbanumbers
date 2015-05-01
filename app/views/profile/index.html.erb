@@ -1,0 +1,637 @@
+ <style type="text/css">
+    .hover {
+    position:relative;
+    float:left;
+    
+}
+
+.tooltip {
+  top: -40px;
+  background-color:black;
+  color:white;
+  border-radius:5px;
+  opacity:0;
+  position:absolute;
+  padding: 3px;
+  -webkit-transition: opacity 0.5s;
+  -moz-transition:  opacity 0.5s;
+  -ms-transition: opacity 0.5s;
+  -o-transition:  opacity 0.5s;
+  transition:  opacity 0.5s;
+  width: 100px;
+}
+
+.hover:hover .tooltip {
+    opacity:1;
+}
+header
+{
+  font-family: 'Lobster', cursive;
+  text-align: center;
+  font-size: 25px;  
+}
+
+#info
+{
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+a{
+  color: #074E8C;
+}
+
+.scrollbar
+{
+  margin-left: 0px;
+  float: left;
+  height: 150px;
+  
+  background: #F5F5F5;
+  overflow-y: scroll;
+  margin-bottom: 0px;
+    width: 100%;
+}
+
+.force-overflow
+{
+  min-height: auto;
+}
+
+#wrapper
+{
+  text-align: center;
+  width: auto;
+  margin: auto;
+}
+
+/*
+ *  STYLE 4
+ */
+
+#style-4::-webkit-scrollbar-track
+{
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar
+{
+  width: 10px;
+  background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+  background-color: #7E7ECD;
+  border: 2px solid #7E7ECD;
+}
+
+
+
+</style>
+ <div class="gdlr-item gdlr-divider-item"></div>
+ <div class="wraper">
+        <div class="mid_wrap">
+            <div class="profile_blog">
+                <div class="profile_blog_lft" style="border:none">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div><!--profile_blog_lft-->
+                <div class="profile_blog_mid">
+                    <div class="profile_blog_mid_lft">
+                        <div class="profile_blog_mid_lft_pic">
+                            <a href="#">
+                    <% unless current_user.image.nil? %>
+              <%= image_tag current_user.image.url, :style => "width:300px;height:250px; margin-left: 18px;" %>
+                <%else %>
+                <img src="/assets/profile.png" alt="Edit Entry" style="width:300px;height:250px;" />
+                
+                
+            <% end %></a>
+                        </div><!--profile_blog_mid_lft_pic-->
+                        <div class="profile_blog_mid_lft_list">
+                            <ul>
+                                <li><i class="icon-envelope-alt" style="color: black; font-size: 16px; "></i><a href="<%= mailboxes_mailbox_path %>">Mailbox</a></li>
+                                <li><i class="icon-location-arrow" style="color: black; font-size: 16px;"></i><a href="<%= mailboxes_newest_path %>">Send Message</a></li>
+                                <li><i class="icon-plus-sign" style="color: black; font-size: 16px; "></i><a href="<%= schools_profile_path %>">Add School</a></li>
+                                <!-- <li><a href="#">View Profile</a><img src="images/profile-list_pics_20.png" alt=""></li> -->
+                               <!--  <li><i class="icon-search" style="color: black; font-size: 16px;"></i><a href="<%= profile_bookmarklist_path %>">Bookmark List</a></li> -->
+                                <li><div class="mtbtn" title="Post a new topic" style="display:inline-block"><i class="icon-edit" style="color: black; font-size: 16px;"></i>
+      <a  data-rel="gdlr-lms-lightbox" data-lb-open="login-form" style="color:black; background-color:white; ">Edit Profile</a>
+    </div></li>
+                                
+                            </ul>
+                        </div><!--profile_blog_mid_lft_list-->
+                    </div><!--profile_blog_mid_lft-->
+                    <div class="profile_blog_mid_rgt">
+                        <div class="profile_search_blog">
+                            <div class="profile_search_blog_lft">
+                                <h1><%=current_user.username %></h1>
+
+                <div class="hover">
+                    <%= image_tag 'congo.jpg', :style => 'margin-top: -12px;'%>
+                    <div class="tooltip">
+                            <%
+                                @username=Like.where('puser_id = ?',current_user.id)
+                            %>
+                            <% unless @username.empty? %>
+                            <%
+                                 @username.each do |f|
+                                 
+                            %>
+                                  <% f.puser_id      
+                                  @likename=Member.find_by_id(f.cuser_id)
+                                  %> 
+
+                                  <%= @likename.username %>
+                                  <br>
+                            <%
+                                end
+                                
+                            %>
+                            <% else %>
+                             No Members...
+                            <%
+                              end
+                             %>
+
+                            
+
+
+
+                          </div>
+                </div>
+                        <% 
+                          @count=Like.where('puser_id = ?',current_user.id).count 
+                          
+                        %>        
+                        
+                         <div style="width:31px;height:25px;background-color:green;border: 0px solid;border-radius: 30px;text-align: center;color: white;display: inline-block;margin-left: 5px;" ><%= @count %>
+
+                          
+
+                         </div>  Have Congratulated You
+                            </div><!--profile_search_blog_lft-->
+
+                   
+
+                            <div class="profile_search_blog_rgt">
+                              
+<%=form_tag profile_viewusers_path, :method => 'get' do |f|  %>
+     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;padding:0px 10px;',:placeholder => 'Enter member name', :id => 'tags'  %>
+     <%= submit_tag 'Search',:style => 'padding: 10px;color:white; background-color:#F7BD4F;' %>
+<% end -%>
+<select id="demo" style="margin-top: -13px;position: absolute;left: 928px;width: 228px;background-color: white;border-color: #D7D1D1;display:none;   margin-left: -7%;"><option value="">----select--------</option></select>
+
+
+                               
+                            </div><!--profile_search_blog_rgt-->
+                        </div><!--profile_search_blog-->
+                      
+                        <div class="home_town_blog">
+                              <div class="eight columns">
+                              
+                            <p style="color: black;font-size: 23px;">
+                            GPA: <%= number_with_precision(current_user.gpa, precision: 2)  %>
+                           <br> 
+                            GMAT: <%=current_user.gmat_score %> | Class of <%=current_user.year %></p>
+                            <dl class="dl-inline">
+                        <dt style="color:black">Hometown:</dt>
+                        <dd><%=current_user.hometown %></dd>
+                        <dt style="color:black">Undergraduate:</dt>
+                        <dd><%=current_user.undergraduate_school %></dd>
+                        <dt style="color:black">
+               
+
+
+                        Work Experience and <br> Other Information:   </dt>
+
+                        <dd>
+                        <%# binding.pry %>
+                        <%if current_user.exp.blank?  %>
+                         <%="--" %>
+                        <%else %> 
+                            
+                        <%=current_user.exp %>
+                        <%end %>
+                        </dd>
+                        <dt style="color:black;">Status:</dt>
+                       
+                       <dd > 
+                          
+                         <% unless current_user.commitschool.nil? %>  
+                        <%#binding.pry %>
+                         COMMITED To
+                         <% sid=current_user.commitschool.split('-') %>
+                    <% @slogo=School.find_by_id(sid[0]) %>
+                    <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />   
+                        
+              <% a=current_user.commitschool.split('-') %> <%= a[1] %> - <%= a[2] %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
+                         <% else %>
+                           OPEN
+                        <% end %></dd>
+                         <dt style="color:black;">Program Type:</dt>
+                         <dd><%@program= Application.find_by_user_id(current_user.id)%>
+                              <%=@program.program %>
+                            
+                         </dd>
+
+                        
+                        </dl>
+                            
+                             <!--home_town_text-->
+                            
+                             <!--home_town_text-->
+    
+                        </div>
+                        <div class="three columns" style="  width: 33%;">
+                          <p class="gdlr-divider thick" style="font-family:arial;font-size: 12px;text-align: center; border-width: 2px; color:black;  margin-bottom: 8px;">Bookmarked Profiles</p>
+                           <div class="scrollbar" id="style-4">
+      <div class="force-overflow">
+        <div  style="height: 150px;">
+                          <div class="gdlr-shortcode-wrapper "></div>
+                          
+                          <% @allmember.each do |key| %>
+                          <% unless  @allmember.blank? %>
+                          
+              
+
+    
+                  <% @user_name= Member.find(key.bookmarkuserid) %>  <a href="<%= static_profile_path(@user_name.username) %>" style="  padding-left: 12px;"><%= @user_name.username %> </a> <br><lable style="margin-left:12px">(GPA: <%= number_with_precision(@user_name.gpa, precision: 2)  %>, &nbsp
+                 GMAT: <%= @user_name.gmat_score%> )</lable>
+                  <div class="gdlr-item gdlr-divider-item" style="  margin-bottom: 0px;"></div>
+                  
+                  
+                  </a> 
+
+                  <br>
+                  <div class="gdlr-item gdlr-divider-item" style="margin-bottom: 0px;  margin-top: -20px;">
+<div class="gdlr-divider dotted" style="width: 100%;  margin-left: 0px;
+"></div>
+</div>
+                  <!-- <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri"style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br> -->
+        <%else %>
+        <%="No Bookmarklists" %>
+         <%end %>
+          <%end %>
+
+                            
+                          </div>
+      </div>
+    </div>
+                        </div>
+
+
+                        <!--home_town_blog--></div></div>
+                        <div class="profile_tbl">
+                            <table>
+                                <tr>
+                                    <th style="text-align: center;font-size:13px;" >School</th>
+                            <th style="text-align: center;  font-size: 13px;  padding: 7px;">Scholarship <br> ($)</th>
+                            <th style="text-align: center;  font-size: 13px;">Status</th>
+                            <th style="text-align: center;  font-size: 13px;">Last Updated</th>
+                            <th style="text-align: center;  font-size: 13px;">Interview Date</th>
+                            <th style="text-align: center;  font-size: 13px;">Round Applied</th>
+                            <th style="text-align: center;  font-size: 13px;">Date Applied</th>
+                            <th style="text-align: center;  font-size: 13px;">Date Decision Recived</th>
+                                </tr>
+                  <% @app_data.each_with_index do |ad , k | %>
+                           
+                            <!-- <tr  <%# if ad.status=="Accepted"%> style = "background-color:#2267CA" <%# elsif ad.status=="Rejected" %> 
+                            style = "background-color:#F5525D"
+                                 <%#end %>> -->
+                                 <tr>
+                            
+                           <td id ="td" style="font-size:12px">
+                          <div class="floatleft school-logo" style="margin-right:12px">
+                                <% sid =ad.school.split('-') %>
+                                <% @slogo=School.find_by_id(sid[0]) %>
+                              
+                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" /> 
+                            </div><div><% sname=ad.school.split('-') %>
+                                        <%= sname[1] %> - <%= sname[2] %>
+                            <br>
+                            <a href="<%=schools_edit_path(ad.id)%>">
+                            <i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>
+                            <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: black; font-size: 14px; "></i></a>
+                            <% if ad.status=="Accepted"%>
+                           
+          <input type="hidden" id = "commitsname<%= k %>" value="<%= ad.school %>">
+            <a href="javascript:void(0)" id="commit<%= k %>">commit</a></div>
+        <%end %>
+                            </td>
+                            <td id="td"style="font-size:12px; text-align: center;" >$
+                            <%if ad.scholarship.empty? %>
+                            0
+                            <%else %>
+                            <%= ad.scholarship %>
+                            <%end %></td>
+                            <td id="td" style="font-size:9px; text-align: center;">
+                            <% if ad.status == "Waitlisted" %>
+                            <%= ad.status %>
+                                <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; text-ailgn:center "></i>
+                                
+                                <% elsif ad.status == "WL, Rejected" || ad.status == "Rejected"%>
+                                <%= ad.status %>
+                                <i class="gdlr-icon icon-remove" style="color: red; font-size: 16px; bacground-color:white;text-ailgn:center "></i>
+                                <% elsif ad.status == "Accepted" %>
+                                <%= ad.status %>
+                                  <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px;text-ailgn:center  "></i>
+                                <% elsif ad.status == "WL, Accepted" %>
+                                <%= ad.status %>
+                                    <i class="gdlr-icon icon-ok" style="color: #91d549; font-size: 16px;text-ailgn:center  "></i>
+                                    <% elsif ad.status == "Rejected" %>
+                                    <%= ad.status %>
+                                  <i class="gdlr-icon icon-remove" style="color: #91d549; font-size: 16px;text-ailgn:center  "></i>
+                                <% else %>
+                                <%= ad.status %>
+
+                                    <i class="gdlr-icon icon-spinner" style="color: #91d549; font-size: 16px;text-ailgn:center  "></i>
+                                
+                            <% end %>
+                                </td>
+
+                            <td id="td"  style="font-size:9px; text-align: center;"><%= ad.updated_at.strftime("%m-%d-%Y") %>
+                            </td>
+                            <td id="td" style="font-size:9px; text-align: center;">
+                            <%if ad.interviewdate.nil? %>
+                            <%="--" %>
+                            <%else %>
+                            <%= ad.interviewdate.strftime("%m-%d-%Y") %> 
+                            <%end %>
+                            </td>
+
+                            <td id="td" style="font-size:9px; text-align: center;"><%=ad.choice %></td>
+                             <td id="td" style="font-size:9px; text-align: center;">
+                              <%if ad.received.nil? %>
+                              <%="--" %>
+                              <%else %>
+
+                              <%= ad.received.strftime("%m-%d-%Y") %> 
+                              <%end %>
+                             <%#binding.pry %></td>
+
+                           
+                              <td id="td" style="font-size:9px; text-align: center;">
+                                         <%if ad.descion.nil? %>           
+                               Not Decided
+                               <%else %>
+                              
+                                <%= ad.descion.strftime("%m-%d-%Y") %>
+                               <%end %> 
+                                          </td>
+                            
+                            
+                            </tr>
+                            
+                            <%end %>
+                            </table>
+                            
+                        </div><!--profile_tbl-->
+                        <!-- <div id="comments" class="gdlr-comments-area">
+                        <h3 class="comments-title"><%=@comments.count %> Responses</h3>
+                        <%#@comments.each do |c| %>
+                        <%#= render :partial => 'profile/comment', :locals => { :mydata => c } %>
+                            <%#end %>
+                            <div id="respond" class="comment-respond">
+                        <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
+                        <%#=form_tag prof_cmn_new_path, :class => 'gdlr-lms-form' do %>
+                            
+                            <%#binding.pry%>
+                            
+                              <%#= hidden_field_tag 'username', current_user[:username] %>
+                            
+
+                            <p>Title*<br>
+                            <span class="wpcf7-form-control-wrap your-name">
+                            <% #binding.pry %>
+                            <%#= text_field_tag 'title' , "",class: 'form-control' ,placeholder: 'Title' %>
+                            </span></p>
+                            <p>Comment*<br>
+                            <span class="wpcf7-form-control-wrap your-name">
+                            <%#= text_area_tag 'comment' , "",class: 'form-control' ,placeholder: 'Comment ' %>
+                            </span></p>
+                            <%#= submit_tag 'Post',class: 'button1' %>
+                        <%#end %>
+                    </div>
+                        <!-- .commentlist -->
+                        <!-- #respond -->
+
+                    <!-- </div> MIDCOMMENT--> 
+                        
+                    <!--profile_blog_mid_rgt-->
+                </div><!--profile_blog_mid-->
+                
+                <!-- <div class="profile_blog_rgt" style="border:none">
+                <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div> --><!--profile_blog_rgt-->
+            </div><!--profile_blog-->
+            <div class="clear"></div>
+        </div><!--mid_wrap-->
+        <div class="clear"></div>
+        <div><div>
+            <div class="gdlr-lms-lightbox-wrapper" style="display:none;"><div class="mtbtn"></div><div class="gdlr-lms-lightbox-container login-form">
+            <div class="gdlr-lms-lightbox-close"><i class="icon-remove"></i></div>
+              <h3>Applicant Information</h3>
+              <div class="profile_search_blog">
+                    <%=form_for @user, :url => {:action => 'update'},:html => {:class => "gdlr-lms-form"} do |f| %>
+        <dl class="dl-horizontal">
+            
+            <dt>Hometown</dt>
+            <dd><%= text_field_tag 'member[hometown]' , current_user.hometown,placeholder: 'Hometown' %></dd>
+           
+            <!-- <dt>Undergraduate</dt>
+            <dd><%#= text_field_tag 'member[undergraduate_school]' , current_user.undergraduate_school ,placeholder: 'Undergraduate' %></dd>
+
+            
+            
+            <dt style="width: 172px";>Undergraduate year*</dt>
+
+            <dd>
+            <span class='gdlr-lms-combobox' style="width: 110px;">
+                <%#=select_year(Date.today,:selected => current_user.year)%>    
+            </span>
+            <script type="text/javascript">
+                        for(var i=0;i<document.getElementById('date_year').length;i++)
+                        {
+                            if(document.getElementById('date_year').options[i].value=="<%= current_user.year  %>")
+                            {
+                                document.getElementById('date_year').options[i].selected=true
+                            }
+                        }          
+            </script>
+            </dd> -->
+            <dt>GPA</dt>
+
+                <dd>
+                <%#binding.pry %>
+            <%= text_field_tag 'member[gpa]' ,  '%.2f' %  current_user.gpa ,placeholder: 'GPA ' %></dd>
+            <dt>GMAT Score</dt>
+            <dd><%= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></dd>
+            <dt>Work Experience and <br> Other Information</dt>
+            <dd><%= text_field_tag 'member[exp]' , current_user.exp,placeholder: 'Work Experience' %></dd>
+            <!-- <dt>Status</dt> -->
+            <!-- <dd>
+           
+            <%#=select_tag 'member[status]', options_for_select([ "Commited", "Open" ]), :style => 'width: 356px;height: 44px;background-color: white;color: #B3ACAC;' %>
+            
+
+
+            <script type="text/javascript">
+                        for(var i=0;i<document.getElementById('member_status').length;i++)
+                        {
+                            if(document.getElementById('member_status').options[i].value=="<%= current_user.status  %>")
+                            {
+                                document.getElementById('member_status').options[i].selected=true
+
+                            }
+                        }          
+            </script>
+            
+            </dd> -->
+            <!-- <div style="display:none;" id="undergrad">
+            <dt>Undergraduate</dt>
+            <dd>
+               
+            
+                <% # text_field_tag 'member[school]' ,current_user.school, placeholder: 'Undergraduate',:required => "true"%>
+            
+            </dd>
+            </div> -->
+            
+        
+            
+        </dl>
+ <div style="width:100%;margin-left: 208px;">
+<%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
+<a href="<%=profile_index_path %>">
+<input class="wpcf7-form-control wpcf7-submit" name="signup" style="font-size:15px;margin-top: 13px;" type="submit" value="Cancel"></a>
+
+
+</div>
+
+        </div>
+    <%end%> 
+
+
+                    </div>
+                    </div>
+
+                    <!-- <div class="profile_blog_rgt">
+                <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div> -->
+<div class="clear"></div>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+$("#member_status").change(function(){
+
+    if($("#member_status").val()=="Commited")
+    {
+        $("#undergrad").css("display","block");
+    }
+
+    if($("#member_status").val()=="Open")
+    {
+        $("#undergrad").css("display","none");
+    }
+  
+    
+});
+
+if($("#member_status").val()=="Commited")
+{
+    $("#undergrad").css("display","block");
+}
+
+
+</script>
+            </div>
+            </div>
+            </div>
+            <div class="clear"></div>
+                    <!-- ---------------commnt---------------- -->
+                </div>
+    </div><!--wraper-->
+    <div class="clear"></div>
+<div class="gdlr-item gdlr-divider-item"></div>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+  <link rel="stylesheet" href="/resources/demos/style.css">
+  <style>
+  .toggler {
+    width: 500px;
+    height: 200px;
+  }
+  #button {
+    padding: .5em 1em;
+    text-decoration: none;
+  }
+  #effect {
+    position: relative;
+    width: 240px;
+    height: 135px;
+    padding: 0.4em;
+  }
+  #effect h3 {
+    margin: 0;
+    padding: 0.4em;
+    text-align: center;
+  }
+  </style>
+  
+<script>
+$(document).ready(function(){
+  <% (0..@app_data.count).each do |f| %>
+
+          
+    
+        $("#commit<%= f %>").click(function(){
+       
+            var cuurentuserid = <%= current_user.id; %>
+            var schoolname =$('#commitsname<%= f %>').val();
+            $.ajax({
+                    url: "<%=root_url %>profile/commitschool/"+cuurentuserid+"/"+schoolname,
+                      context: document.body
+                    }).done(function(r) {
+
+                            
+                            location.reload();
+                        
+                });
+         });
+     <% end %>
+     $('#tags').keyup(function(){
+            
+            var username =$("#tags").val();
+            
+            $("#demo").css("display", "block");
+            $.ajax({
+                    url: "<%=root_url %>colleges/searchusers/"+username,
+                      context: document.body
+                    }).done(function(r) {
+
+                            document.getElementById("demo").innerHTML = r;
+                });
+        });
+
+     $('#demo').change(function(){
+        var a=$('#demo').val();
+        document.getElementById("tags").value = a;
+        $("#demo").css("display", "none");
+     })
+ 
+});
+</script>

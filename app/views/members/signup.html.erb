@@ -1,0 +1,192 @@
+<% 
+def addthree(max)
+    # Return a sequence incremented by three up to the max.
+    i = 200
+    while i <= max
+    yield i
+    i += 10
+    end
+end
+%>
+<div class="gdlr-item gdlr-divider-item"></div>
+<div class="profile_blog_lft">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div>
+                    <div class="profile_blog_mid_rgt">
+                    <div class="profile_search_blog">
+
+
+                    <%=form_for @user, :url => {:action => 'create'},:html => {:class => "gdlr-lms-form"} do |f| %>
+        <dl class="dl-horizontal">
+            <dt> Full Name*</dt>
+            <dd><%= text_field_tag 'member[name]' , "",placeholder: 'Name' %></dd>
+            <dt>User Name*</dt>
+            <dd><%= text_field_tag 'member[username]' , "",placeholder: 'User Name' %></dd>
+            <dt>Email Address*</dt>
+            <dd><%= text_field_tag 'member[email]' , "",placeholder: 'Email' %></dd>
+            <dt>Zipcode*</dt>
+            <dd><%= text_field_tag 'member[zipcode]' , "",placeholder: 'Zipcode' %></dd>
+            <dt>Hometown</dt>
+            <dd><%= text_field_tag 'member[hometown]' , "",placeholder: 'Hometown' %></dd>
+            <dt ><span>Did you graduate</span></br><span> college in the USA? *</span> </dt>
+            <dd>
+                        
+        <input type="radio" id="question" name="member[question]" value="yes" style="width: 35px;height: 17px;"> Yes
+        <input type="radio" id="question1" name="member[question]" value="no"style="width: 35px;height: 17px;"> No   
+                        
+            </dd>
+            <div style="display:none;" id="stated">
+            <dt style="width: 172px;margin-top: 10px;">State</dt>
+            <dd style="margin-top: 37px;"><span class="gdlr-lms-combobox" >
+    <select name="state" id="state" style="width: 780px;">
+                        <option value="">-----------Select State----------</option>
+                        <% @state.each do |s| %>
+                          <option value="<%= s.id %>"><%= s.states %></option>  
+                        <% end %>
+                                  
+    </select>
+                        </span></dd>
+            <dt style="width: 172px;">Undergraduate School*</dt>
+            <dd><span class="gdlr-lms-combobox" >
+            <select name="undergraduate_school" id="undergraduate_school" style="width: 783px;">
+                <option value="">-----------Select School----------</option>
+                   
+            </select>
+            
+                        </span></dd>
+            </div>
+            <div style="display:none;" id="schoold">
+            <dt style="width: 172px;margin-top: 17px;">Undergraduate School*</dt>
+            <dd style="margin-top:17px;">
+           
+        <%= text_field_tag 'school' , "",placeholder: 'Undergraduate School' %>
+           
+            </dd>
+            </div>
+            <dt style="width: 172px";>Undergraduate Year*</dt>
+
+            <dd>
+            <span class='gdlr-lms-combobox' style="width: 150px;">
+            <%= select_year(Date.today, start_year: 1990, end_year: 2018) %>
+                
+            </span>
+            </dd>
+            <dt>GPA</dt>
+                <dd><%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></dd>
+            <dt>GMAT Score</dt>
+            <dd>
+            <span class="gdlr-lms-combobox" style="width: 150px;">
+              <select name="member[gmat_score]">
+                  <option value="">-----Select----</option>
+                  <% addthree(800) do |n| %>
+                     <option value="<%= n %>"><%= n %></option>
+                  <% end %>
+                
+              </select>
+              </span>
+            </dd>
+            <dt>Work Experience <br>  And Other Information</dt>
+            <dd><%= text_field_tag 'member[exp]' , "",placeholder: 'Work Experience' %></dd>
+            <dt>Refer A Friend</dt>
+            <dd><%= text_field_tag 'member[friend]' , "",placeholder: "Enter Friend's Email" %></dd>
+            <dt>Password*</dt>
+            <dd>
+            <%=password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Enter Password' %>
+            </dd>
+            <dt style="width: 171px;">Password confirmation*</dt>
+            <dd>
+            <%=password_field_tag 'password_confirmation' , "",class: 'form-control' ,placeholder: 'Retype password' %>
+            </dd>
+            <dt>Photo</dt>
+            <dd>
+                <%= f.file_field :image, class: 'form-control'%>
+            </dd>
+                
+            </dl>
+            <div class="three columns"></div>
+            <div class="three columns">
+ <div style="width:100%;">
+<%= submit_tag 'Create an account',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
+    
+</div>
+</div>
+        </div>
+    <%end%> 
+    <div class="row" style="60px"  >
+            <h5 style="color:#bfbfbf;text-align:center">Or Login with an existing account:</h5>
+            
+    <div class="three columns" >
+    <a class="gdlr-button" href="/auth/facebook" target="_self" style="color:#ffffff; background-color:#3b5998;"><i class="gdlr-icon icon-facebook"></i> Login with Facebook</a>                                                        </div>
+    <div class="three columns" >
+    <a class="gdlr-button" href="/auth/gplus" target="_self" style="color:#ffffff; background-color:#dd4b39;"><i class="gdlr-icon icon-google-plus"></i> login  with google</a>
+    </div>
+    <div class="three columns" >
+    <a class="gdlr-button" href="/auth/linkedin" target="_self" style="color:#ffffff; background-color:#007bb6;"><i class="gdlr-icon icon-linkedin-sign"></i> login with linkedin</a>
+
+    </div>
+    <div class="three columns" >
+    <a class="gdlr-button" href="/auth/twitter" target="_self" style="color:#ffffff; background-color:#00aced;"><i class="gdlr-icon icon-twitter"></i> login with twitter</a>
+    </div>                  
+    <div class="clear"></div>
+</div>
+                    </div>
+                    </div>
+
+
+                <div class="profile_blog_rgt">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div>
+
+
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+$("#state").change(function(){
+   // alert("check");
+   var stateid=$("#state").val();
+   // alert(a);
+    $.ajax({
+              url: "<%=root_url %>colleges/index/"+stateid,
+              context: document.body
+            }).done(function(r) {
+
+                   // alert(r);
+                document.getElementById('undergraduate_school').innerHTML=r;
+                
+        });
+    
+});
+
+$('#question').click(function(){
+    var a=$("#question").val();
+        $('#stated').css('display','block');
+        $('#schoold').css('display','none');
+    
+    
+});
+$('#question1').click(function(){
+    
+    var b=$("#question1").val();
+    $('#schoold').css('display','block');
+    $('#stated').css('display','none');
+    
+});
+
+$("#undergraduate_school").change(function(){
+
+    var a=$("#undergraduate_school").val();
+     if(a == "OTHER (MY SCHOOL IS NOT LISTED)")
+     {
+        $('#schoold').css('display','block');
+     }
+     else
+     {
+        $('#schoold').css('display','none');
+     }
+
+
+});
+
+
+
+</script>

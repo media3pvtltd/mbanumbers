@@ -1,0 +1,71 @@
+
+<div class="gdlr-item gdlr-divider-item"></div>
+
+<div id='profind'>
+<div>
+<div class="gdlr-item gdlr-tab-item horizontal" id="well">
+<div class="tab-title-wrapper">
+	<a href="<%=schools_path %>"><h4 class="tab-title">
+<span> MBA School List</span></h4></a>
+	<a href="<%=schools_ranking_path %>"><h4 class="tab-title active"><span>By Ranking</span></h4></a>
+	<!-- <a href="<%=schools_name_path %>"><h4 class="tab-title"><span>By Name</span></h4></a> -->
+	<a href="<%=schools_state_path %>"><h4 class="tab-title"><span>By State</span></h4></a>
+	<div class="gdlr-lms-content">
+
+		<div id="tribe-events-bar">
+
+	<!-- <form id="tribe-bar-form" class="tribe-clearfix tribe-bar-full" name="tribe-bar-form" method="post" action="http://themes.goodlayers.com/clevercourse/events?post_type=tribe_events&amp;eventDisplay=default">
+	 -->
+		<!-- Mobile Filters Toggle -->
+	
+</div>
+<div>
+	<!-- #Temproray -->
+	 
+</div>
+	<!-- <div class="well"> -->
+		<div>
+			<table width="100%" border="1" cellspacing="8" cellpadding="0" class="drawreq_table">
+                       <tr><th id="th" style="border-right:none;border-bottom:none"></th>
+                <th id ="th" style="border-left:none" rowspan="2"  width="38%">Business School</th>
+                <th id ="th" rowspan="2" width="4%">University</th>
+                <th id ="th" rowspan="2" width="4%">State</th>
+                <th id ="th" rowspan="2" width="4%">City</th>
+                <th id ="th" colspan="4" width="27%">Ranks</th>
+                        </tr>
+                        <tr>
+
+                        <th  id ="th" width="12%" style="border:#3E6AA7;border-bottom:1px solid #000" ></th>
+                        <th  id ="th" width="11%">Forbes</th>
+                        <th id ="th">USN</th>
+                    </tr>
+                    <% @schools.each do |t| %>
+                    <tr>
+                            <td style="border-right:none; margin-top:10px"><img alt="Icon" src="<%= t.image.thumb('150x150').url %>" style="width: 60px; height: 41px;" />
+                    </td>
+                            <td style="border-left:none"> <a href="<%= school_appinfo_path(t.business_school) %>" style="color:#453232;">
+                                    <%= t.business_school%>
+                                    </a> </td>
+                            <td style="color:#453232;"> <%=t.university %></td>
+                            <td style="color:#453232;">
+                    <%= State.find_by_id(t.state_id).name%></td>
+                            
+                            <td style="color:#453232;"><%=t.city %></td>
+                            <td style="color:#453232;"><%=t.forbes %></td>
+                    <td style="color:#453232;"><%=t.US_News_Ranking %></td>
+                    
+                    </tr>
+                    <%end%>
+                    
+                    
+               </table> 
+		</div>
+		<%= will_paginate @schools, :class => 'gdlr-pagination'%>
+	<!-- </div> -->
+	<div class="clear"></div>
+</div>
+<div class="clear"></div>
+</div>
+</div>
+</div>
+</div>
