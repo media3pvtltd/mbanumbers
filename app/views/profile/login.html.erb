@@ -10,18 +10,20 @@
                 <div class="profile_blog_mid_rgt">
                     <div class="profile_search_blog">
                     <%=form_tag profile_create_path, :class =>'gdlr-item gdlr-content-item gdlr-lms-form' do |f| %>
-        <dl class="dl-horizontal" >
+        <p class="gdlr-lms-half-left">
                 
-                <dt style="color:black">Email Address*</dt>
-                <dd><%= text_field_tag 'email' , "",class: 'form-control' ,placeholder: 'Email', :style => "width: 71%;" %></dd>
-                <dt style="color:black">Password*</dt>
-                <dd><%= password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Password',:style => "width: 71%;" %></dd>
+                <label style="color:black">Email Address*</label>
+                <%= text_field_tag 'email' , "",class: 'form-control' ,placeholder: 'Email' %></p>
+                 <p class="gdlr-lms-half-left">
+                <label style="color:black">Password*</label>
+                <%= password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Password' %></p>
                 
                 
-        </dl>
-        <div style="width:100%;text-align:center;">
+        
+        <div style="text-align:center;">
+        <p class="gdlr-lms-half-left">
             <%= submit_tag 'Signin',class: 'wpcf7-form-control wpcf7-submit',name: 'signin', style: 'font-size: 11px;'   %>    
-            <a href="<%= profile_forgotpassword_path %>">Forgot Your Password?</a>
+            <a href="<%= profile_forgotpassword_path %>">Forgot Your Password?</a></p>
         </div>
        </div>
         </div>
@@ -34,7 +36,7 @@
                     
 
                     <!-- <div class="profile_blog_rgt">
-                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
                 </div> -->
 <div class="clear"></div>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>

@@ -17,64 +17,88 @@ end
 
 
                     <%=form_for @user, :url => {:action => 'create'},:html => {:class => "gdlr-lms-form"} do |f| %>
-        <dl class="dl-horizontal">
-            <dt> Full Name*</dt>
-            <dd><%= text_field_tag 'member[name]' , "",placeholder: 'Name' %></dd>
-            <dt>User Name*</dt>
-            <dd><%= text_field_tag 'member[username]' , "",placeholder: 'User Name' %></dd>
-            <dt>Email Address*</dt>
-            <dd><%= text_field_tag 'member[email]' , "",placeholder: 'Email' %></dd>
-            <dt>Zipcode*</dt>
-            <dd><%= text_field_tag 'member[zipcode]' , "",placeholder: 'Zipcode' %></dd>
-            <dt>Hometown</dt>
-            <dd><%= text_field_tag 'member[hometown]' , "",placeholder: 'Hometown' %></dd>
-            <dt ><span>Did you graduate</span></br><span> college in the USA? *</span> </dt>
-            <dd>
+      
+        <p class="gdlr-lms-half-left">
+             <label>Full Name*</label>
+            <%= text_field_tag 'member[name]' , "",placeholder: 'Name' %></p>
+              <div class="clear"></div>    
+              <p class="gdlr-lms-half-left">                                                 
+            <label>User Name*</label>
+            <%= text_field_tag 'member[username]' , "",placeholder: 'User Name' %></p>
+            <p class="gdlr-lms-half-left">
+            <label>Email Address*</label>
+           <%= text_field_tag 'member[email]' , "",placeholder: 'Email' %></p>
+           <p class="gdlr-lms-half-left">
+            <label>Zipcode*</label>
+            <%= text_field_tag 'member[zipcode]' , "",placeholder: 'Zipcode' %></p>
+            <p class="gdlr-lms-half-left">
+            <label>Hometown</label>
+            <%= text_field_tag 'member[hometown]' , "",placeholder: 'Hometown' %></p>
+            <p class="gdlr-lms-half-left">
+            <label><span>Did you graduate college in the USA? *</span></label> 
+            
                         
         <input type="radio" id="question" name="member[question]" value="yes" style="width: 35px;height: 17px;"> Yes
         <input type="radio" id="question1" name="member[question]" value="no"style="width: 35px;height: 17px;"> No   
                         
-            </dd>
+            </p>
+
             <div style="display:none;" id="stated">
-            <dt style="width: 172px;margin-top: 10px;">State</dt>
-            <dd style="margin-top: 37px;"><span class="gdlr-lms-combobox" >
-    <select name="state" id="state" style="width: 780px;">
+            <p class="gdlr-lms-half-left">
+            
+            <label style="width: 172px;margin-top: 10px;">State</label>
+            
+            
+            <span class="gdlr-lms-combobox" >
+            <select name="state" class="gdlr-lms-combobox" id="state" >
                         <option value="">-----------Select State----------</option>
                         <% @state.each do |s| %>
                           <option value="<%= s.id %>"><%= s.states %></option>  
                         <% end %>
                                   
     </select>
-                        </span></dd>
-            <dt style="width: 172px;">Undergraduate School*</dt>
-            <dd><span class="gdlr-lms-combobox" >
-            <select name="undergraduate_school" id="undergraduate_school" style="width: 783px;">
-                <option value="">-----------Select School----------</option>
-                   
-            </select>
-            
-                        </span></dd>
-            </div>
-            <div style="display:none;" id="schoold">
-            <dt style="width: 172px;margin-top: 17px;">Undergraduate School*</dt>
-            <dd style="margin-top:17px;">
-           
-        <%= text_field_tag 'school' , "",placeholder: 'Undergraduate School' %>
-           
-            </dd>
-            </div>
-            <dt style="width: 172px";>Undergraduate Year*</dt>
+                        </span></p>
+                        <p class="gdlr-lms-half-left">
+            <label style="width: 172px";>Undergraduate Year*</label> 
 
-            <dd>
+            
             <span class='gdlr-lms-combobox' style="width: 150px;">
             <%= select_year(Date.today, start_year: 1990, end_year: 2018) %>
                 
             </span>
-            </dd>
-            <dt>GPA</dt>
-                <dd><%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></dd>
-            <dt>GMAT Score</dt>
-            <dd>
+            </p>
+                        <p class="gdlr-lms-half-left">
+            <label >Undergraduate School*</label>
+            <span class="gdlr-lms-combobox" >
+            <select name="undergraduate_school" id="undergraduate_school" >
+                <option value="">-----------Select School----------</option>
+                   
+            </select>
+            
+                        </span></p>
+            </div>
+            <p class="gdlr-lms-half-left">
+            <div style="display:none;" id="schoold">
+            <label style="width: 172px;margin-top: 17px;">Undergraduate School*</label>
+            
+           
+        <%= text_field_tag 'school' , "",placeholder: 'Undergraduate School' %>
+           
+            
+            </div>
+            </p>
+            
+            <p class="gdlr-lms-half-left">
+            <label>GPA</label>
+                <%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></p>
+                 <p class="gdlr-lms-half-left">
+
+            <label>Work Experience And Other Information</label>
+            <%= text_field_tag 'member[exp]' , "",placeholder: 'Work Experience' %>
+            </p>
+                 <p class="gdlr-lms-half-left">
+            <label>GMAT Score</label>
+            
             <span class="gdlr-lms-combobox" style="width: 150px;">
               <select name="member[gmat_score]">
                   <option value="">-----Select----</option>
@@ -83,27 +107,30 @@ end
                   <% end %>
                 
               </select>
-              </span>
-            </dd>
-            <dt>Work Experience <br>  And Other Information</dt>
-            <dd><%= text_field_tag 'member[exp]' , "",placeholder: 'Work Experience' %></dd>
-            <dt>Refer A Friend</dt>
-            <dd><%= text_field_tag 'member[friend]' , "",placeholder: "Enter Friend's Email" %></dd>
-            <dt>Password*</dt>
-            <dd>
+              </span></p>
+           
+            
+            <p class="gdlr-lms-half-left">
+            <label>Password*</label>
+            
             <%=password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Enter Password' %>
-            </dd>
-            <dt style="width: 171px;">Password confirmation*</dt>
-            <dd>
+            </p>
+            <p class="gdlr-lms-half-left">
+            <label>Refer A Friend</label>
+            <%= text_field_tag 'member[friend]' , "",placeholder: "Enter Friend's Email" %></p>
+            <p class="gdlr-lms-half-left">
+            <label style="width: 171px;">Password confirmation*</label>
+            
             <%=password_field_tag 'password_confirmation' , "",class: 'form-control' ,placeholder: 'Retype password' %>
-            </dd>
-            <dt>Photo</dt>
-            <dd>
+            </p>
+            <p class="gdlr-lms-half-left">
+            <label>Photo</label>
+            
                 <%= f.file_field :image, class: 'form-control'%>
-            </dd>
+            </p>
                 
-            </dl>
-            <div class="three columns"></div>
+            
+            
             <div class="three columns">
  <div style="width:100%;">
 <%= submit_tag 'Create an account',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>

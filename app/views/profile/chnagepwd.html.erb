@@ -10,19 +10,21 @@ margin-right: 300px;
 	<div class="wpcf7" id="wpcf7-f8-o1" lang="en-US" dir="ltr">
 	<div class="screen-reader-response"></div>
 	<%=form_tag profile_changepwdcreate_path,:class => "gdlr-lms-form" do |f| %>
-        <dl class="dl-horizontal">
-        	<dt>Old Password*</dt>
+
+        <p class="gdlr-lms-half-left">
+        	<label>Old Password*</label>
+        	<input type="password" name="oldpassword" id="Oldpassword" placeholder="Old Password" style="background-color: #ffffff;border-color: #e3e3e3;border: 1px solid;"></p>
+        	<p class="gdlr-lms-half-left">
+        	<label>New Password*</label>
+        	<input type="password" name="newpassword" id="Newpassword" placeholder="New Password" style="background-color: #ffffff;border-color: #e3e3e3;border: 1px solid;"></p>
+        	<p class="gdlr-lms-half-left">
+        	<label>Confirm Password*</label>
+        	<input type="password" name="conformpassword" id="conformpassword" placeholder="Confirm Password" style="background-color: #ffffff;border-color: #e3e3e3;border: 1px solid;"></p>
         	
-        	<dd><input type="password" name="oldpassword" id="Oldpassword" placeholder="Old Password" style="background-color: #ffffff;border-color: #e3e3e3;border: 1px solid;"></dd>
-        	<dt>New Password*</dt>
-        	<dd><input type="password" name="newpassword" id="Newpassword" placeholder="New Password" style="background-color: #ffffff;border-color: #e3e3e3;border: 1px solid;"></dd>
-        	<dt>Confirm Password*</dt>
-        	<dd><input type="password" name="conformpassword" id="conformpassword" placeholder="Confirm Password" style="background-color: #ffffff;border-color: #e3e3e3;border: 1px solid;"></dd>
-        	
-        </dl>
- <div style="width:100%;margin-left: 208px;">
+      <p class="gdlr-lms-half-left">  
+ <div style="width:100%;">
 <%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
-</div>
+</div></p>
 
 		</div>
 	<%end%> 

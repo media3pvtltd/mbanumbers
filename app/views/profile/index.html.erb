@@ -198,15 +198,15 @@ a{
                            <br> 
                             GMAT: <%=current_user.gmat_score %> | Class of <%=current_user.year %></p>
                             <dl class="dl-inline">
-                        <dt style="color:black">Hometown:</dt>
+                        <dt style="color:black">Hometown:</label>
                         <dd><%=current_user.hometown %></dd>
-                        <dt style="color:black">Undergraduate:</dt>
+                        <dt style="color:black">Undergraduate:</label>
                         <dd><%=current_user.undergraduate_school %></dd>
                         <dt style="color:black">
                
 
 
-                        Work Experience and <br> Other Information:   </dt>
+                        Work Experience and <br> Other Information:   </label>
 
                         <dd>
                         <%# binding.pry %>
@@ -217,7 +217,7 @@ a{
                         <%=current_user.exp %>
                         <%end %>
                         </dd>
-                        <dt style="color:black;">Status:</dt>
+                        <dt style="color:black;">Status:</label>
                        
                        <dd > 
                           
@@ -232,7 +232,7 @@ a{
                          <% else %>
                            OPEN
                         <% end %></dd>
-                         <dt style="color:black;">Program Type:</dt>
+                         <dt style="color:black;">Program Type:</label>
                          <dd><%@program= Application.find_by_user_id(current_user.id)%>
                               <%=@program.program %>
                             
@@ -446,17 +446,16 @@ a{
               <h3>Applicant Information</h3>
               <div class="profile_search_blog">
                     <%=form_for @user, :url => {:action => 'update'},:html => {:class => "gdlr-lms-form"} do |f| %>
-        <dl class="dl-horizontal">
+        <p class="gdlr-lms-half-left">
             
-            <dt>Hometown</dt>
-            <dd><%= text_field_tag 'member[hometown]' , current_user.hometown,placeholder: 'Hometown' %></dd>
-           
-            <!-- <dt>Undergraduate</dt>
+            <label>Hometown</label>
+            <%= text_field_tag 'member[hometown]' , current_user.hometown,placeholder: 'Hometown' %></p>
+            <!-- <label>Undergraduate</label>
             <dd><%#= text_field_tag 'member[undergraduate_school]' , current_user.undergraduate_school ,placeholder: 'Undergraduate' %></dd>
 
             
             
-            <dt style="width: 172px";>Undergraduate year*</dt>
+            <dt style="width: 172px";>Undergraduate year*</label>
 
             <dd>
             <span class='gdlr-lms-combobox' style="width: 110px;">
@@ -472,16 +471,24 @@ a{
                         }          
             </script>
             </dd> -->
-            <dt>GPA</dt>
+            <p class="gdlr-lms-half-left">
+            <label>GPA</label>
 
-                <dd>
+                
                 <%#binding.pry %>
-            <%= text_field_tag 'member[gpa]' ,  '%.2f' %  current_user.gpa ,placeholder: 'GPA ' %></dd>
-            <dt>GMAT Score</dt>
-            <dd><%= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></dd>
-            <dt>Work Experience and <br> Other Information</dt>
-            <dd><%= text_field_tag 'member[exp]' , current_user.exp,placeholder: 'Work Experience' %></dd>
-            <!-- <dt>Status</dt> -->
+            <%= text_field_tag 'member[gpa]' ,  '%.2f' %  current_user.gpa ,placeholder: 'GPA ' %>
+            <p class="gdlr-lms-half-left">
+            <label>GMAT Score</label>
+            <%= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></p>
+
+
+            <p class="gdlr-lms-half-left">
+            <label>Work Experience and  Other Information</label>
+            <%= text_field_tag 'member[exp]' , current_user.exp,placeholder: 'Work Experience' %></p>
+
+
+
+            <!-- <label>Status</label> -->
             <!-- <dd>
            
             <%#=select_tag 'member[status]', options_for_select([ "Commited", "Open" ]), :style => 'width: 356px;height: 44px;background-color: white;color: #B3ACAC;' %>
@@ -501,7 +508,7 @@ a{
             
             </dd> -->
             <!-- <div style="display:none;" id="undergrad">
-            <dt>Undergraduate</dt>
+            <label>Undergraduate</label>
             <dd>
                
             
@@ -512,14 +519,14 @@ a{
             
         
             
-        </dl>
- <div style="width:100%;margin-left: 208px;">
+        <p class="gdlr-lms-half-left">
+ <div style="">
 <%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
 <a href="<%=profile_index_path %>">
 <input class="wpcf7-form-control wpcf7-submit" name="signup" style="font-size:15px;margin-top: 13px;" type="submit" value="Cancel"></a>
 
 
-</div>
+</div></p>
 
         </div>
     <%end%> 
