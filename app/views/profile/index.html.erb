@@ -123,6 +123,49 @@ a{
     </div></li>
                                 
                             </ul>
+                            <p class="gdlr-divider thick" style="font-family:arial;font-size: 12px;text-align: center; border-width: 2px; color:black;  margin-bottom: 8px;">Bookmarked Profiles</p>
+                           <div class="scrollbar" id="style-4">
+      <div class="force-overflow">
+        <div  style="height: 150px;">
+                          <div class="gdlr-shortcode-wrapper "></div>
+                          
+                          <% @allmember.each do |key| %>
+                          <% unless  @allmember.blank? %>
+                          
+              
+
+    
+                  <% @user_name= Member.find(key.bookmarkuserid) %>  <a href="<%= static_profile_path(@user_name.username) %>" style="  padding-left: 12px;"><%= @user_name.username %> </a> <br><lable style="margin-left:12px">(GPA: <%= number_with_precision(@user_name.gpa, precision: 2)  %>, &nbsp
+                 GMAT: <%= @user_name.gmat_score%> )</lable>
+                  <div class="gdlr-item gdlr-divider-item" style="  margin-bottom: 0px;"></div>
+                  
+                  
+                  </a> 
+
+                  <br>
+                  <div class="gdlr-item gdlr-divider-item" style="margin-bottom: 0px;  margin-top: -20px;">
+<div class="gdlr-divider dotted" style="width: 100%;  margin-left: 0px;
+"></div>
+</div>
+                  <!-- <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri"style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
+                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br> -->
+        <%else %>
+        <%="No Bookmarklists" %>
+         <%end %>
+          <%end %>
+
+                            
+                          </div>
+      </div>
+    </div>
                         </div><!--profile_blog_mid_lft_list-->
                     </div><!--profile_blog_mid_lft-->
                     <div class="profile_blog_mid_rgt">
@@ -191,107 +234,79 @@ a{
                         </div><!--profile_search_blog-->
                       
                         <div class="home_town_blog">
-                              <div class="eight columns">
+                              
                               
                             <p style="color: black;font-size: 23px;">
                             GPA: <%= number_with_precision(current_user.gpa, precision: 2)  %>
                            <br> 
                             GMAT: <%=current_user.gmat_score %> | Class of <%=current_user.year %></p>
-                            <dl class="dl-inline">
-                        <dt style="color:black">Hometown:</dt>
-                        <dd><%=current_user.hometown %></dd>
-                        <dt style="color:black">Undergraduate:</dt>
-                        <dd><%=current_user.undergraduate_school %></dd>
-                        <dt style="color:black">
+
+
+                            <div class="home_town_text_lft">
+                        <p style="color:black">Hometown:</p>
+                        </div>
+                        <div class="home_town_text_rgt">
+                        <p><%=current_user.hometown %></p></div>
+                          <div class="home_town_text_lft">
+                        <p style="color:black">Undergraduate:</p></div>
+                        <div class="home_town_text_rgt">
+                        <p><%=current_user.undergraduate_school %></p>
+                        </div>
+
+                        
+                        <div class="home_town_text_lft">
+                        <p style="color:black">
                
 
 
-                        Work Experience and <br> Other Information:   </dt>
-
-                        <dd>
+                        Work Experience and <br> Other Information:   </p></div>
+                        <div class="home_town_text_rgt">
+                        
                         <%# binding.pry %>
                         <%if current_user.exp.blank?  %>
-                         <%="--" %>
+                         <p><%="--" %></p>
                         <%else %> 
                             
-                        <%=current_user.exp %>
+                        <p><%=current_user.exp %></p> 
                         <%end %>
-                        </dd>
-                        <dt style="color:black;">Status:</dt>
-                       
-                       <dd > 
-                          
-                         <% unless current_user.commitschool.nil? %>  
+                        </div>
+                        <div class="home_town_text">
+                              <div class="home_town_text_lft">
+                                  <p style="color:black;">Status:</p>
+                                </div><!--home_town_text_lft-->
+                                <div class="home_town_text_rgt">
+                                  <% unless current_user.commitschool.nil? %>  
                         <%#binding.pry %>
-                         COMMITED To
+                         <p>COMMITED To
                          <% sid=current_user.commitschool.split('-') %>
                     <% @slogo=School.find_by_id(sid[0]) %>
                     <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />   
                         
-              <% a=current_user.commitschool.split('-') %> <%= a[1] %> - <%= a[2] %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
+              <% a=current_user.commitschool.split('-') %> <%= a[1] %> - <%= a[2] %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> </p>
                          <% else %>
-                           OPEN
-                        <% end %></dd>
-                         <dt style="color:black;">Program Type:</dt>
-                         <dd><%@program= Application.find_by_user_id(current_user.id)%>
+                           <p>OPEN</p>
+                        <% end %></p></div>
+                        <div class="home_town_text_lft">
+                         <p style="color:black;">Program Type:</p></div>
+                         <div class="home_town_text_rgt">
+                         <p><%@program= Application.find_by_user_id(current_user.id)%>
                               <%=@program.program %>
                             
-                         </dd>
+                         </p>
+                                </div><!--home_town_text_rgt-->
+                            </div>
 
                         
-                        </dl>
+                       
                             
                              <!--home_town_text-->
                             
                              <!--home_town_text-->
     
                         </div>
-                        <div class="three columns" style="  width: 33%;">
-                          <p class="gdlr-divider thick" style="font-family:arial;font-size: 12px;text-align: center; border-width: 2px; color:black;  margin-bottom: 8px;">Bookmarked Profiles</p>
-                           <div class="scrollbar" id="style-4">
-      <div class="force-overflow">
-        <div  style="height: 150px;">
-                          <div class="gdlr-shortcode-wrapper "></div>
+                       
                           
-                          <% @allmember.each do |key| %>
-                          <% unless  @allmember.blank? %>
-                          
-              
-
-    
-                  <% @user_name= Member.find(key.bookmarkuserid) %>  <a href="<%= static_profile_path(@user_name.username) %>" style="  padding-left: 12px;"><%= @user_name.username %> </a> <br><lable style="margin-left:12px">(GPA: <%= number_with_precision(@user_name.gpa, precision: 2)  %>, &nbsp
-                 GMAT: <%= @user_name.gmat_score%> )</lable>
-                  <div class="gdlr-item gdlr-divider-item" style="  margin-bottom: 0px;"></div>
-                  
-                  
-                  </a> 
-
-                  <br>
-                  <div class="gdlr-item gdlr-divider-item" style="margin-bottom: 0px;  margin-top: -20px;">
-<div class="gdlr-divider dotted" style="width: 100%;  margin-left: 0px;
-"></div>
-</div>
-                  <!-- <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
-                  <a href="/member/srinuvasuvilluri"style="  padding-left: 12px;">srinuvasuvilluri</a><br>
-                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
-                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
-                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
-                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
-                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
-                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
-                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br>
-                  <a href="/member/srinuvasuvilluri" style="  padding-left: 12px;">srinuvasuvilluri</a><br> -->
-        <%else %>
-        <%="No Bookmarklists" %>
-         <%end %>
-          <%end %>
-
-                            
-                          </div>
-      </div>
-    </div>
-                        </div>
-
+                        
 
                         <!--home_town_blog--></div></div>
                         <div class="profile_tbl">
