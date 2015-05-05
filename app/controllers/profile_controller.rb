@@ -47,7 +47,7 @@ before_action :check_session, :only => [:login, :create]
     @all_mebers=Member.all
   end
   def staticprofile
-
+    @title = 'Static Profile'
 
     # @a=params[:q]
     
