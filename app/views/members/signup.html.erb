@@ -115,14 +115,15 @@ end
             
             <%=password_field_tag 'password' , "",class: 'form-control' ,placeholder: 'Enter Password' %>
             </p>
-            <p class="gdlr-lms-half-left">
-            <label>Refer A Friend</label>
-            <%= text_field_tag 'member[friend]' , "",placeholder: "Enter Friend's Email" %></p>
+            
             <p class="gdlr-lms-half-left">
             <label style="width: 171px;">Password confirmation*</label>
             
             <%=password_field_tag 'password_confirmation' , "",class: 'form-control' ,placeholder: 'Retype password' %>
             </p>
+            <p class="gdlr-lms-half-left">
+            <label>Refer A Friend</label>
+            <%= text_field_tag 'member[friend]' , "",placeholder: "Enter Friend's Email" %></p>
             <p class="gdlr-lms-half-left">
             <label>Photo</label>
             

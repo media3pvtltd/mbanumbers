@@ -1713,3 +1713,96 @@ ul								{ list-style:none;}
 .drawreq_table td  { padding:12px 10px; border:none; border-right:1px solid #000;     border-collapse: collapse;
    }
 
+@charset "utf-8";
+/* CSS Document */
+
+img							{ max-width:100%;}
+
+.full_wrap					{ width:100%; float:left;}
+
+.mid_wrap					{ max-width:1350px; margin:auto;}
+
+.profile_wrap				{ width:100%; float:left;}
+
+.add_wrap					{ width:14%; float:left; border:1px solid #333; min-height:500px;}
+
+.main_wrap					{ width:85%; float:right;}
+
+.photo_wrap					{ width:26%; float:left;}
+
+.photo_wrap ul				{ padding:0;}
+
+.photo_wrap ul li			{ font-size:14px; padding:10px 15px; border:1px solid #ccc; border-bottom:none; list-style:none;}
+
+.photo_wrap ul li img		{ float:left;}
+
+.photo_wrap ul li:last-child{ border-bottom:1px solid #ccc;}
+
+.photo_wrap ul li a			{ color:#000000; text-decoration:none;}
+
+.photo_wrap ul li a:hover	{ text-decoration:underline;}
+
+.txt_wrap					{ width:70%; float:right;}
+
+.sub2 input[type=text]		{ float:right; padding:5px 2%; background-color:#fff; border:1px solid #999; border-radius:5px; margin:5px;}
+
+.sub2 input[type=button]	{ float:right; background-color:#FC0; padding:5px 2%; border:none; border-radius:5px; margin:5px;}
+
+.sub1						{ width:50%; float:left;}
+
+.sub2						{ width:50%; float:right; padding:30px 0px}
+
+.txt_wrap p					{ color:#000;}
+
+.txt_wrap span				{ color:#999;}
+
+.txt_box					{ width:40%; float:right; margin-right:5%;}
+
+.txt_box h4					{ text-align:center;}
+
+.txt_div					{ width:100%; float:left; background-color:#CCC; height:150px; padding:10px; margin:5px 0px;}
+
+
+
+
+table						{ width:98%; margin:20px 2% 20px 0px;}
+
+table,tr, td,th				{ border:1px solid #ccc; border-collapse:collapse; text-align:center; padding:20px 10px;}
+
+table th					{ background-color: #3e6aa7; font-size:12px; color:#FFF;}
+
+table tr					{ font-size:10px;}
+
+
+
+@media screen and ( max-width:1024px)
+{
+	
+	
+}
+
+
+
+
+@media screen and ( max-width:768px)
+{
+.add_wrap			{ display:none;}	
+.main_wrap 			{ width:98%;}	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -27,7 +27,7 @@
 							<tr>
 				
 			<td colspan="3" style="padding:10px;color:#453232;" > 
-				<a href="<%= static_profile_path(user.name) %>"> <%= user.username %> </a> 
+				<a href="<%= static_profile_path(user.username) %>"> <%= user.username %> </a> 
 			</td>		
 			<td colspan="2" style="padding:10px;color:#453232;" > 
 			<%= number_with_precision(user.gpa, precision: 2)  %>

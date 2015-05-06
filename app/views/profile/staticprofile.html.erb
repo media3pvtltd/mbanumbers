@@ -32,9 +32,9 @@
                                     
                                 </i>
                                  -->
-                    <a  href="#" style="display:none;" id="profilebookmarkadded">    Profile Bookmark Added
+                    <a  href="<%= user_remove_path(@user.id) %>" style="display:none;" id="profilebookmarkadded">    Profile Bookmark Added
                     </a>
-                <%unless @user.nil? %>
+                <% unless current_user.nil? %>
                 <a href="<%= user_remove_path(@user.id) %>" 
                 style="display:none;float: left;margin-top: -23px;" id="budel">
                     <i class="icon-remove" style="color:#d55949; font-size: 14px;margin-left: 200px; "></i>
@@ -107,7 +107,11 @@
                         </dd>
                         <dt style="color:black;">Program Type:</dt>
                          <dd><%@program= Application.find_by_user_id(@user.id)%>
+                         <%if @program.nil? %>
+                         <p><%="Not Decided" %></p>
+                            <%else %>
                               <%=@program.program %>
+                              <%end %>
                             
                          </dd>
                             </dl>
