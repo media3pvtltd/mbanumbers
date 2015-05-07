@@ -92,29 +92,12 @@ a{
 
 
 </style>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <div class="content-wrapper">
 <!-- <div class = "one columns">
 <div class="gdlr-item gdlr-divider-item"></div>
   <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
 </div> -->
-  <div id="primary" class="content-area">
+  <div id="primary" class="content-area" style="  background-color: white;">
     <div id="content" class="site-content" role="main">
       <div class="gdlr-lms-content">
         <div class="gdlr-lms-container gdlr-lms-container">
@@ -130,35 +113,9 @@ a{
                 
             <% end %></div>
         <div class="gdlr-lms-author-title-wrapper">
-        <div class="gdlr-lms-author-name">Rebecca Smith</div>
-        <div class="gdlr-lms-author-position"> GPA: <%= number_with_precision(current_user.gpa, precision: 2)  %>
-                           <br> 
-                            GMAT: <%=current_user.gmat_score %> | Class of <%=current_user.year %></div></div>
-        <div class="gdlr-lms-author-info">
-        <div class="author-info phone">
-        <i class="icon-phone"></i>+1-222-222-33</div>
-        <div class="author-info mail">
-        <i class="icon-envelope-alt"></i><a href="mailto:Rebecca@goodlayerss.com">Rebecca@goodlayerss.com</a></div>
-        <div class="author-info url"><i class="icon-link"></i>
-        <a href="http://goodlayers.com" target="_blank">http://goodlayers.com</a>
-        </div></div>
-        <div class="gdlr-lms-author-social"><a class="lms-social-shortcode" target="_blank" href="#">
-        <img src="http://themes.goodlayers.com/clevercourse/wp-content/plugins/goodlayers-lms/social-icon-color/twitter.png" alt="twitter" style="opacity: 1;"></a> 
-        <a class="lms-social-shortcode" target="_blank" href="#">
-        <img src="http://themes.goodlayers.com/clevercourse/wp-content/plugins/goodlayers-lms/social-icon-color/linkedin.png" alt="linkedin" style="opacity: 1;"></a> 
-        <a class="lms-social-shortcode" target="_blank" href="#">
-        <img src="http://themes.goodlayers.com/clevercourse/wp-content/plugins/goodlayers-lms/social-icon-color/googleplus.png" alt="googleplus" style="opacity: 1;"></a> 
-        <a class="lms-social-shortcode" target="_blank" href="#">
-        <img src="http://themes.goodlayers.com/clevercourse/wp-content/plugins/goodlayers-lms/social-icon-color/facebook.png" alt="facebook" style="opacity: 1;"></a> 
-        <a class="lms-social-shortcode" target="_blank" href="#">
-        <img src="http://themes.goodlayers.com/clevercourse/wp-content/plugins/goodlayers-lms/social-icon-color/pinterest.png" alt="pinterest" style="opacity: 1;"></a></div>
-        <a class="gdlr-lms-button cyan" href="/clevercourse/author/rebeccasm/?post_type=course">View courses by Rebecca</a></div>
-        <div class="gdlr-lms-author-content-wrapper">
-
-        <div class= "twelve column">
-        
-          <div class="hover">
-                    <%= image_tag 'congo.jpg', :style => 'margin-top: -12px;'%>
+        <div class="gdlr-lms-author-name"><%=current_user.username %></div>
+        <div class="hover">
+                    <%= image_tag 'congo.png'%>
                     <div class="tooltip">
                             <%
                                 @username=Like.where('puser_id = ?',current_user.id)
@@ -200,6 +157,77 @@ a{
                           
 
                          </div>  Have Congratulated You
+        
+        <div class="gdlr-lms-author-position"> GPA: <%= number_with_precision(current_user.gpa, precision: 2)  %>
+                           <br> 
+                            GMAT: <%=current_user.gmat_score %> | Class of <%=current_user.year %></div></div>
+        <div class="gdlr-lms-author-info">
+        <div class="author-info phone">
+        <i class="icon-envelope-alt" style="color: black; font-size: 16px; "></i><a href="<%= mailboxes_mailbox_path %>">Mailbox</a></div>
+        <div class="author-info mail">
+       <i class="icon-location-arrow" style="color: black; font-size: 16px;"></i><a href="<%= mailboxes_newest_path %>">Send Message</a></div>
+        <div class="author-info url"><i class="icon-plus-sign" style="color: black; font-size: 16px; "></i><a href="<%= schools_profile_path %>">Add School</a>
+        </div>
+        <div class="author-info url"><div class="mtbtn" title="Post a new topic" style="display:inline-block"><i class="icon-edit" style="color: black; font-size: 16px;"></i>
+      <a  data-rel="gdlr-lms-lightbox" data-lb-open="login-form" style="color: rgb(204, 204, 204); ">Edit Profile</a>
+    </div>
+        </div>
+
+
+        </div>
+
+        <!-- <div class="gdlr-lms-author-social"><a class="lms-social-shortcode" target="_blank" href="#">
+        <img src="http://themes.goodlayers.com/clevercourse/wp-content/plugins/goodlayers-lms/social-icon-color/twitter.png" alt="twitter" style="opacity: 1;"></a> 
+        <a class="lms-social-shortcode" target="_blank" href="#">
+        <img src="http://themes.goodlayers.com/clevercourse/wp-content/plugins/goodlayers-lms/social-icon-color/linkedin.png" alt="linkedin" style="opacity: 1;"></a> 
+        <a class="lms-social-shortcode" target="_blank" href="#">
+        <img src="http://themes.goodlayers.com/clevercourse/wp-content/plugins/goodlayers-lms/social-icon-color/googleplus.png" alt="googleplus" style="opacity: 1;"></a> 
+        <a class="lms-social-shortcode" target="_blank" href="#">
+        <img src="http://themes.goodlayers.com/clevercourse/wp-content/plugins/goodlayers-lms/social-icon-color/facebook.png" alt="facebook" style="opacity: 1;"></a> 
+        <a class="lms-social-shortcode" target="_blank" href="#">
+        <img src="http://themes.goodlayers.com/clevercourse/wp-content/plugins/goodlayers-lms/social-icon-color/pinterest.png" alt="pinterest" style="opacity: 1;"></a></div> -->
+        <!-- <a class="gdlr-lms-button cyan" href="/clevercourse/author/rebeccasm/?post_type=course">View courses by Rebecca</a> -->
+          
+          <div class="gdlr-lms-instructor-content">
+              <div class="gdlr-lms-author-name" style="  text-align: center;  background: white;  color: black;">Bookmarked Profiles</div>
+              <div class="scrollbar" id="style-4">
+      <div class="force-overflow">
+              <div class="gdlr-lms-instructor-thumbnail" style="padding:8px;    height: 185px;">
+              <%#binding.pry %>
+              
+             <% @allmember.each do |key| %>
+                          <% unless  @allmember.blank? %>
+                          
+              
+
+    
+                  <% @user_name= Member.find(key.bookmarkuserid) %>
+
+              <h6 style="margin-bottom:0px" ><%= @user_name.username %> </h6>
+              <div class="gdlr-lms-instructor-position">(GPA: <%= number_with_precision(@user_name.gpa, precision: 2)  %>, &nbsp
+                 GMAT: <%= @user_name.gmat_score%> )</div><br> <hr>
+                 <%else %>
+        <%="No Bookmarklists" %>
+         <%end %>
+          <%end %>
+</div></div></div>
+
+            <div class="gdlr-lms-instructor-title-wrapper">
+            
+
+              </div>
+              
+          </div>
+
+
+        </div>
+
+
+        <div class="gdlr-lms-author-content-wrapper">
+
+        <div class= "twelve column">
+        
+          
                          
 
                          <div class="gdlr-lms-author-extra-info-wrapper">
@@ -340,7 +368,42 @@ a{
 <%end %>
 
 </tbody>
-</table></div></div>    </div>    <div class="clear"></div>
+</table></div></div>
+    <div class="twelve column">
+      
+      <div id="comments" class="gdlr-comments-area">
+                        <h3 class="comments-title" >Responses: <%=@comments.count %> </h3>
+                        <%@comments.each do |c| %>
+                        <%= render :partial => 'profile/comment', :locals => { :mydata => c } %>
+                        <%end %>
+                        <!-- .commentlist -->
+                    <div id="respond" class="comment-respond">
+                        <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
+                        <%=form_tag comment_new_path, :class => 'gdlr-lms-form' do %>
+                        
+                            
+                            
+                              <%= hidden_field_tag 'username', params[:username] %>
+                            
+
+                            <p>Title*<br>
+                            <span class="wpcf7-form-control-wrap your-name">
+                            <% #binding.pry %>
+                            <%= text_field_tag 'title' , "",class: 'form-control' ,placeholder: 'Title' %>
+                            </span></p>
+                            <p>Comment*<br>
+                            <span class="wpcf7-form-control-wrap your-name">
+                            <%= text_area_tag 'comment' , "",class: 'form-control' ,placeholder: 'Comment ' %>
+                            </span></p>
+                            <%= submit_tag 'Post',class: 'button1' %>
+                        <%end %>
+                    </div><!-- #respond -->
+                    </div>
+    </div>
+
+
+
+    </div>    <div class="clear"></div>
       </div>
       </div><!-- gdlr-lms-item
     </div><!-- gdlr-lms-container -->
@@ -382,7 +445,50 @@ if($("#member_status").val()=="Commited")
                 </div>
     </div><!--wraper-->
     <div class="clear"></div>
-<div class="gdlr-item gdlr-divider-item"></div>
+<!-- <div class="gdlr-item gdlr-divider-item"></div> -->
+<div class="gdlr-lms-lightbox-wrapper" style="display:none;"><div class="mtbtn"></div><div class="gdlr-lms-lightbox-container login-form">
+            <div class="gdlr-lms-lightbox-close"><i class="icon-remove"></i></div>
+              <h3>Applicant Information</h3>
+              <div class="profile_search_blog">
+                    <%=form_for @user, :url => {:action => 'update'},:html => {:class => "gdlr-lms-form"} do |f| %>
+        <p class="gdlr-lms-half-left">
+            
+            <label>Hometown</label>
+            <%= text_field_tag 'member[hometown]' , current_user.hometown,placeholder: 'Hometown' %></p>
+           
+            <p class="gdlr-lms-half-left">
+            <label>GPA</label>
+
+                
+                <%#binding.pry %>
+            <%= text_field_tag 'member[gpa]' ,  '%.2f' %  current_user.gpa ,placeholder: 'GPA ' %></p>
+            <p class="gdlr-lms-half-left">
+            
+             <label>GMAT Score</label>  
+             <%= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></p>
+
+             <p class="gdlr-lms-half-left">
+            <label>Work Experience and Other Information</label>
+            <%= text_field_tag 'member[exp]' , current_user.exp,placeholder: 'Work Experience' %></p>
+            
+        
+            
+       
+ <div >
+<%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
+<a href="<%=profile_index_path %>">
+<input class="wpcf7-form-control wpcf7-submit" name="signup" style="font-size:15px;margin-top: 13px;" type="submit" value="Cancel"></a>
+
+
+</div>
+
+        </div>
+    <%end%> 
+
+
+                    </div>
+                    </div>
+
 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <script src="//code.jquery.com/jquery-1.10.2.js"></script>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>

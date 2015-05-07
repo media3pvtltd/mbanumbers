@@ -7,6 +7,7 @@ class Member < ActiveRecord::Base
                      
 	validates :email, uniqueness: true
 	validates :email, format: /@/
+	validates :friend, format: /@/,presence: { message: "email is written in wrong format" }
 	validate :username, :uniqueness => {:case_sensitive => false}
 	validates :gpa, presence: true
 	validates_numericality_of :gpa , :less_than_or_equal_to=>4.00, :greater_than_or_equal_to=>1.00
