@@ -47,7 +47,8 @@ a{
 {
   margin-left: 0px;
   float: left;
-  height: 150px;
+    height: 315px;
+
   
   background: #F5F5F5;
   overflow-y: scroll;
@@ -163,12 +164,12 @@ a{
                             GMAT: <%=current_user.gmat_score %> | Class of <%=current_user.year %></div></div>
         <div class="gdlr-lms-author-info">
         <div class="author-info phone">
-        <i class="icon-envelope-alt" style="color: black; font-size: 16px; "></i><a href="<%= mailboxes_mailbox_path %>">Mailbox</a></div>
+        <i class="icon-envelope-alt" style="color: white; font-size: 16px; "></i><a href="<%= mailboxes_mailbox_path %>">Mailbox</a></div>
         <div class="author-info mail">
-       <i class="icon-location-arrow" style="color: black; font-size: 16px;"></i><a href="<%= mailboxes_newest_path %>">Send Message</a></div>
-        <div class="author-info url"><i class="icon-plus-sign" style="color: black; font-size: 16px; "></i><a href="<%= schools_profile_path %>">Add School</a>
+       <i class="icon-location-arrow" style="color: white; font-size: 16px;"></i><a href="<%= mailboxes_newest_path %>">Send Message</a></div>
+        <div class="author-info url"><i class="icon-plus-sign" style="color: white; font-size: 16px; "></i><a href="<%= schools_profile_path %>">Add School</a>
         </div>
-        <div class="author-info url"><div class="mtbtn" title="Post a new topic" style="display:inline-block"><i class="icon-edit" style="color: black; font-size: 16px;"></i>
+        <div class="author-info url"><div class="mtbtn" title="Post a new topic" style="display:inline-block"><i class="icon-edit" style="color: white; font-size: 16px;"></i>
       <a  data-rel="gdlr-lms-lightbox" data-lb-open="login-form" style="color: rgb(204, 204, 204); ">Edit Profile</a>
     </div>
         </div>
@@ -189,10 +190,10 @@ a{
         <!-- <a class="gdlr-lms-button cyan" href="/clevercourse/author/rebeccasm/?post_type=course">View courses by Rebecca</a> -->
           
           <div class="gdlr-lms-instructor-content">
-              <div class="gdlr-lms-author-name" style="  text-align: center;  background: white;  color: black;">Bookmarked Profiles</div>
+              <div class="gdlr-lms-author-name" style="  text-align: center;  background: white;  color: white;">Bookmarked Profiles</div>
               <div class="scrollbar" id="style-4">
       <div class="force-overflow">
-              <div class="gdlr-lms-instructor-thumbnail" style="padding:8px;    height: 185px;">
+              <div class="gdlr-lms-instructor-thumbnail" style="padding:8px;      height: 750px;">
               <%#binding.pry %>
               
              <% @allmember.each do |key| %>
@@ -375,27 +376,19 @@ a{
                         <h3 class="comments-title" >Responses: <%=@comments.count %> </h3>
                         <%@comments.each do |c| %>
                         <%= render :partial => 'profile/comment', :locals => { :mydata => c } %>
+                      
                         <%end %>
                         <!-- .commentlist -->
                     <div id="respond" class="comment-respond">
                         <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
-                        <%=form_tag comment_new_path, :class => 'gdlr-lms-form' do %>
-                        
-                            
-                            
-                              <%= hidden_field_tag 'username', params[:username] %>
-                            
 
-                            <p>Title*<br>
-                            <span class="wpcf7-form-control-wrap your-name">
-                            <% #binding.pry %>
-                            <%= text_field_tag 'title' , "",class: 'form-control' ,placeholder: 'Title' %>
-                            </span></p>
-                            <p>Comment*<br>
-                            <span class="wpcf7-form-control-wrap your-name">
-                            <%= text_area_tag 'comment' , "",class: 'form-control' ,placeholder: 'Comment ' %>
-                            </span></p>
-                            <%= submit_tag 'Post',class: 'button1' %>
+                        <%=form_tag comment_new_path do %>
+                        <%= hidden_field_tag 'username', current_user.username %>
+                            <p>Subject<br>
+    <span class="wpcf7-form-control-wrap your-subject"><%= text_field_tag 'title' , "",class: 'wpcf7-form-control wpcf7-text' ,placeholder: 'Title' %></span> </p>
+                            <p>Your Message<br>
+    <span class="wpcf7-form-control-wrap your-message"><%= text_area_tag 'comment' , "",class: 'wpcf7-form-control wpcf7-textarea', placeholder: 'Comment', cols: '40', rows: '10' %></span> </p>
+                  <%= submit_tag 'Post',class: 'button1' %>
                         <%end %>
                     </div><!-- #respond -->
                     </div>

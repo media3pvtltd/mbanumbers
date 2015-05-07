@@ -17,7 +17,7 @@ before_action :check_session, :only => [:login, :create]
     @school_name=School.all
     @state = Ustate.all
 
-    @comments = Comment.where('target_id=?',session[:user_id])
+    @comments = Comment.where('target_id=?',session[:user_id]).paginate(:page => params[:page], :per_page => 5)
     @allmember=Bookmark.where('currentuserid=?',session[:user_id])
   end
   
@@ -69,16 +69,17 @@ before_action :check_session, :only => [:login, :create]
   end
 
    def commentcreate
-   
+    
     @comment = Comment.new(params.permit(:title, :comment))
     @comment.user_id = session[:user_id]
     @comment.target_id = Member.find_by_username(params[:username]).id
 
     if @comment.save
       flash[:success] = 'Comment added'
-      redirect_to static_profile_path(params[:username])
+      redirect_to profile_index_path(params[:username])
     else
-      render :text => 'something went wrong'
+      flash[:error]="Something went wrong"
+      redirect_to static_profile_path(params[:username])
     end
   end
   def viewUsers

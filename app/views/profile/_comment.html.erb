@@ -15,18 +15,19 @@
 			<% end %>
 			</div>
 			<div class="comment-body">
-				<header class="comment-meta">
-					<div class="comment-author gdlr-title"><%= @member.username %></div>
+				<header class="comment-meta" style="  text-align: left;">
+					<div class="comment-author gdlr-title" style="text-align: left;"><%= @member.username %></div>
 					<div class="comment-time">
 						<i class="icon-time"></i>
 						<a href="">
-							<time><%=mydata.created_at.strftime('%A, %d %b %Y %l:%M %p') %></time>
+							<time style="font-size: 14px;"><%=mydata.created_at.strftime('%A, %d %b %Y %l:%M %p') %></time>
 						</a>
 					</div>
 				</header>
 				<section class="comment-content">
 					<h5><%=mydata.title %></h5>
 					<p><%=mydata.comment %></p>
+					<%= will_paginate @comments, :class => 'gdlr-pagination'%>
 				</section><!-- comment-content -->
 			</div><!-- comment-body -->
 		</article><!-- comment-article -->
