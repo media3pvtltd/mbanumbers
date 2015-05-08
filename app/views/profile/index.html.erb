@@ -190,7 +190,7 @@ a{
         <!-- <a class="gdlr-lms-button cyan" href="/clevercourse/author/rebeccasm/?post_type=course">View courses by Rebecca</a> -->
           
           <div class="gdlr-lms-instructor-content">
-              <div class="gdlr-lms-author-name" style="  text-align: center;  background: white;  color: white;">Bookmarked Profiles</div>
+              <div class="gdlr-lms-author-name" style="  text-align: center;  background: white;  color: black;">Bookmarked Profiles</div>
               <div class="scrollbar" id="style-4">
       <div class="force-overflow">
               <div class="gdlr-lms-instructor-thumbnail" style="padding:8px;      height: 750px;">
@@ -204,7 +204,7 @@ a{
     
                   <% @user_name= Member.find(key.bookmarkuserid) %>
 
-              <h6 style="margin-bottom:0px" ><%= @user_name.username %> </h6>
+              <h6 style="margin-bottom:0px" > <a href="<%= static_profile_path(@user_name.username) %>"><%= @user_name.username %></a>  </h6>
               <div class="gdlr-lms-instructor-position">(GPA: <%= number_with_precision(@user_name.gpa, precision: 2)  %>, &nbsp
                  GMAT: <%= @user_name.gmat_score%> )</div><br> <hr>
                  <%else %>
@@ -376,7 +376,7 @@ a{
                         <h3 class="comments-title" >Responses: <%=@comments.count %> </h3>
                         <%@comments.each do |c| %>
                         <%= render :partial => 'profile/comment', :locals => { :mydata => c } %>
-                      
+
                         <%end %>
                         <!-- .commentlist -->
                     <div id="respond" class="comment-respond">
