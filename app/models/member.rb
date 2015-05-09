@@ -1,6 +1,6 @@
 class Member < ActiveRecord::Base
 	include BCrypt
-	validates :username, presence: true
+	validates :username,  presence: { message: "does not exist" }
 	validates :username, uniqueness: true
 	validates :username, length: {maximum: 30, minimum: 6 }
 	validates :email, presence: true

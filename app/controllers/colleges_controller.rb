@@ -1,7 +1,7 @@
 class CollegesController < ApplicationController
 	layout 'member'
   def index
-  	@state=Ucollege.where("state_id=?",params[:stateid])
+  	@state=Ucollege.where("state_id=?",params[:stateid]).order('college ASC')
 
   end
   def searchusers
