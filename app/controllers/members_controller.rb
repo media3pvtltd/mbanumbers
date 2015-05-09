@@ -37,7 +37,7 @@ before_action :pass_check, only: :create
        unless params[:member][:friend].blank?
        UserMailer.friend(@user).deliver!
      end
-      flash[:success] = 'Your Account is created sucessfully, before you login activate your email'
+      flash[:success] = 'Your Account Has Been Created Successfully! Login To Your Email To Activate Your Account!!'
       redirect_to root_url
     else
       redirect_to members_signup_path, :flash => {:model_errors => @user.errors.messages}
