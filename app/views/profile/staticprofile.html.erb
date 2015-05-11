@@ -24,10 +24,10 @@
         <% unless @user.commitschool.nil? %>
         <% @likeuser=Like.where('cuser_id =? AND puser_id =?',current_user.id,@user.id)%>
            <% if @likeuser.empty? %>
-                <a href="javascript:void(0)" id="like" style="float:left;"> <%= image_tag 'congo.jpg', :style => 'margin-top: -12px;'%> </a>
+                <a href="javascript:void(0)" id="like" style="float:left;"> <%= image_tag 'congo.jpg', :style => 'margin-top: -1px;'%> </a>
             <% end %>
-                <a href="javascript:void(0)" id="dislike" style="display:none;float:left"><%= image_tag 'congo.jpg', :style => 'margin-top: -12px;' %></a>
-            <label id="content"> Be the first person to congratulate <%= @user.username %></label>
+                <a href="javascript:void(0)" id="dislike" style="display:none;float:left"><%= image_tag 'congo.jpg', :style => 'margin-top: -1px;' %></a>
+            <label id="content2" style="margin-left: 10px;"> Be the first person to congratulate <%= @user.username %></label>
             <label id="content1" style="display:none;"> You sucessfully congratulate the <%= @user.username %></label>
                
             
@@ -48,21 +48,21 @@
           <div class="gdlr-lms-author-info">
          <div class="author-info mail">
        <i class="icon-location-arrow" style="color: white; font-size: 16px;"></i><a href="<%= mailboxes_newest_path %>">Send Message</a></div>
-          <div class="author-info mail"><% unless @user.nil? %>
-                                  <i class="icon-plus-sign" style="color: white; font-size: 16px;"></i>  <a href="#" id="profilebookmark">Bookmark</a>
-                                <% end %>
-                                <!-- <i class="icon-search" style="color: black; font-size: 16px; margin-left: 124px;">
-                                    
-                                </i>
-                                 -->
-                    <a  href="<%= user_remove_path(@user.id) %>" style="display:none;" id="profilebookmarkadded">    Profile Bookmark Added
-                    </a>
+          <div class="author-info mail">
+                 <i class="icon-plus-sign" style="color: white; font-size: 16px;"></i>  
                 <% unless @user.nil? %>
-                <a href="<%= user_remove_path(@user.id) %>" 
-                style="display:none;float: left;margin-top: -23px;" id="budel">
-                    <i class="icon-remove" style="color:#d55949; font-size: 14px;margin-left: 200px; "></i>
+                   <a href="javascript:void(0)" id="profilebookmark">Bookmark</a>
+                <% end %>
+
+                <a  href="javascript:void(0)" style="display:none;" id="profilebookmarkadded">    Profile Bookmark Added
                 </a>
-                <%end %></div>
+                <% unless @user.nil? %>
+                    <a href="<%= user_remove_path(@user.id) %>" 
+                    style="display:none;float: left;margin-top: -23px;" id="budel">
+                    <i class="icon-remove" style="color:#d55949; font-size: 14px;margin-left: 200px; "></i>
+                    </a>
+                <%end %>
+          </div>
           </div>
          </div>
 
@@ -233,4 +233,114 @@
 </div>
     <div class="clear"></div>
   </div>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+        var busercount = <%= @buseridcount %>
+        if(busercount > 0)
+        {
+            $('#profilebookmarkadded').show();
+            $('#budel').show();
+            $('#profilebookmark').css('display','none');            
+        }
+
+    <% unless current_user.nil? %>
+    $("#profilebookmark").click(function(){
+
+            var cuserid= <%= current_user.id  %> 
+            var buserid= <%=  @user.id %>
+            $.ajax({
+              url: "<%=root_url %>user/bookmark/"+cuserid+"/"+buserid,
+              context: document.body
+            }).done(function(r) {
+                if( r == 'true')
+                {
+
+                    $('#profilebookmarkadded').css('display','block');
+                    
+                    $('#profilebookmark').css('display','none');
+                    $('#budel').show();
+                }
+                else
+                {
+                    
+                    $('#profilebookmarkadded').show();
+                    $('#profilebookmark').css('display','none');
+                    $('#budel').show(); 
+                }
+        });
+
+    });
+    <%end %>
+    $("#like").click(function(){
+
+
+        var cuserid= <%= current_user.id  %> 
+
+        var buserid= <%=  @user.id %>
+            $.ajax({
+              url: "<%=root_url %>profile/like/"+cuserid+"/"+buserid,
+              context: document.body
+            }).done(function(r) {
+
+                    // console.log(r);
+                    if(r == true)
+                    {
+                       $('#dislike').css('display','block');
+                       $('#content1').css('display','block');
+                       $('#like').css('display','none');
+                       $('#content2').css('display','none');
+                    }
+
+               
+            });
+
+
+            
+
+    });
+    $("#dislike").click(function(){
+
+
+        var cuserid= <%= current_user.id  %> 
+        
+        var buserid= <%=  @user.id %>
+            $.ajax({
+              url: "<%=root_url %>profile/dislike/"+cuserid+"/"+buserid,
+              context: document.body
+            }).done(function(r) {
+
+                    
+                    if(r == true)
+                    {
+                        
+
+                       $('#dislike').css('display','none');
+                       $('#content2').css('display','block');
+                        $('#content1').css('display','none');
+                       $('#like').css('display','block');
+                       
+                    }
+
+               
+            });
+
+
+            
+
+    });
+ <%  unless @user.commitschool.nil? %>
+     <% 
+        unless @likeuser.empty? 
+     %>
+        $('#dislike').css('display','block');
+        $('#like').css('display','none');
+        $('#content1').css('display','block');
+        $('#content2').css('display','none');
+     <% end %>
+<%  end %>
+});
+</script>
 
