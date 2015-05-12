@@ -24,9 +24,9 @@
         <% unless @user.commitschool.nil? %>
         <% @likeuser=Like.where('cuser_id =? AND puser_id =?',current_user.id,@user.id)%>
            <% if @likeuser.empty? %>
-                <a href="javascript:void(0)" id="like" style="float:left;"> <%= image_tag 'congo.jpg', :style => 'margin-top: -1px;'%> </a>
+                <a href="javascript:void(0)" id="like" style="float:left;"> <%= image_tag 'congo.png', :style => 'margin-top: -1px;'%> </a>
             <% end %>
-                <a href="javascript:void(0)" id="dislike" style="display:none;float:left"><%= image_tag 'congo.jpg', :style => 'margin-top: -1px;' %></a>
+                <a href="javascript:void(0)" id="dislike" style="display:none;float:left"><%= image_tag 'congo.png', :style => 'margin-top: -1px;' %></a>
             <label id="content2" style="margin-left: 10px;"> Be the first person to congratulate <%= @user.username %></label>
             <label id="content1" style="display:none;"> You sucessfully congratulate the <%= @user.username %></label>
                

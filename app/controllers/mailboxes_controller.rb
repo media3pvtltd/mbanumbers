@@ -50,6 +50,7 @@
       :message => params[:message], :member_id => session[:user_id], :from => params[:from],:sender_at => params[:sender_at],:receiver_at => params[:receiver_at])
      @outbox.from = current_user.email
       if @outbox.save
+        flash[:success] = 'Message send sucessfully'
         redirect_to  :action => 'mailbox' , :alert => "Message send sucessfully"
       end
   end

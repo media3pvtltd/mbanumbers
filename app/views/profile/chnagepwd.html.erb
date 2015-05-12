@@ -11,17 +11,17 @@ margin-right: 300px;
 	<div class="screen-reader-response"></div>
 	<%=form_tag profile_changepwdcreate_path,:class => "gdlr-lms-form" do |f| %>
 
-        <p class="gdlr-lms-half-left">
+        <p class="gdlr-lms-half-left" style="float:none;">
         	<label>Old Password*</label>
         	<input type="password" name="oldpassword" id="Oldpassword" placeholder="Old Password" style="background-color: #ffffff;border-color: #e3e3e3;border: 1px solid;"></p>
-        	<p class="gdlr-lms-half-left">
+        	<p class="gdlr-lms-half-left" style="float:none;">
         	<label>New Password*</label>
         	<input type="password" name="newpassword" id="Newpassword" placeholder="New Password" style="background-color: #ffffff;border-color: #e3e3e3;border: 1px solid;"></p>
-        	<p class="gdlr-lms-half-left">
+        	<p class="gdlr-lms-half-left" style="float:none;">
         	<label>Confirm Password*</label>
         	<input type="password" name="conformpassword" id="conformpassword" placeholder="Confirm Password" style="background-color: #ffffff;border-color: #e3e3e3;border: 1px solid;"></p>
         	
-      <p class="gdlr-lms-half-left">  
+      <p class="gdlr-lms-half-left" style="float:none;">  
  <div style="width:100%;">
 <%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'signup',style:'font-size:15px;margin-top: 13px;'%>
 </div></p>

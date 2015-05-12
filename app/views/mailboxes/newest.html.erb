@@ -25,7 +25,8 @@
 	<div class="eight columns">
 			<div class="gdlr-item gdlr-tab-item horizontal"><div class="tab-title-wrapper"><a href="<%=mailboxes_mailbox_path %>"><h4 class="tab-title" ><i class="icon-inbox"></i><span>Inbox</span></h4></a><a href="<%=mailboxes_outbox_path %>"><h4 class="tab-title"><i class="icon-share-alt"></i><span>Outbox</span></h4></a><a href="<%=mailboxes_newest_path %>"><h4 class="tab-title active"><i class="icon-edit"></i><span>Compose</span></h4></a></div><div class="tab-content-wrapper">
 
-
+					<i class="icon-chevron-left" ></i>
+	<i class="icon-chevron-left" ></i><a href="<%=profile_index_path %>">Back to profile</a>
 					<div class="tab-content active">
 					<%=form_tag mailboxes_compose_path, :class =>'gdlr-item gdlr-content-item gdlr-lms-form' do |f| %>
 					<input type="hidden" name="from" value=<%= @usermail %>>
@@ -34,7 +35,7 @@
 		<p>Email id:*<br>
 		<span id="error1" style="color:red"></span>
 		<span class="wpcf7-form-control-wrap your-name">
-		<%= text_field_tag 'name' , "",class: 'form-control' ,placeholder: 'Name' ,
+		<%= text_field_tag 'name' , "",class: 'form-control' ,placeholder: 'Email' ,
 		:id => "name"%>
 		</span> </p>
 		<p>Subject<br>

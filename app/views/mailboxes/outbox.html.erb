@@ -24,7 +24,11 @@
 	<div class="two columns"><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
 	<div class="eight columns">
 			<div class="gdlr-item gdlr-tab-item horizontal"><div class="tab-title-wrapper"><a href="<%=mailboxes_mailbox_path %>"><h4 class="tab-title"><i class="icon-inbox"></i><span>Inbox</span></h4></a>
-			<a href="<%=mailboxes_outbox_path %>"><h4 class="tab-title active"><i class="icon-share-alt"></i><span>Outbox</span></h4></a><a href="<%=mailboxes_newest_path %>"><h4 class="tab-title"><i class="icon-edit"></i><span>Compose</span></h4></a></div><div class="tab-content-wrapper"><div class="tab-content ">
+			<a href="<%=mailboxes_outbox_path %>"><h4 class="tab-title active"><i class="icon-share-alt"></i><span>Outbox</span></h4></a><a href="<%=mailboxes_newest_path %>"><h4 class="tab-title"><i class="icon-edit"></i><span>Compose</span></h4></a></div><div class="tab-content-wrapper">
+				<i class="icon-chevron-left" ></i>
+	<i class="icon-chevron-left" ></i><a href="<%=profile_index_path %>">Back to profile</a>
+
+			<div class="tab-content ">
 			<table class="style-1">
 				<tbody>
 				<tr>
@@ -53,8 +57,8 @@
 				
 				<td style="width:25%">
 				<b><%=f.name %></b><br>
-				<a href="#"><%=f.subject %></a><br>
-				<a href="<%= mailboxes_outboxdel_path(f.id) %>">Delete</a></td>
+				<a href="#" style="font-size:14px"><%=f.subject %></a><br>
+				<a href="<%= mailboxes_outboxdel_path(f.id) %>" style="color:#d6724f"><i class="gdlr-icon icon-remove" ></i>Delete</a></td>
 				<td style="width:50%"><b><%= f.message %></b></td>
 				<td style="25%"><%= f.created_at.strftime("%B %d, %Y %H:%M") %></td>	</tr>					
 		

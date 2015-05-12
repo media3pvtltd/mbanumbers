@@ -1,17 +1,17 @@
-<div class="well" style="border:none">
-<div class="gdlr-lms-content" style="width: 1042px; padding-top:0px">
+<div class="" style="border:none">
+<div class="" style="width: 1042px; padding-top:0px">
  <span style="color: rgb(219, 103, 103);margin-left: 316px;" id="error"></span>
 <%= form_tag schools_create_path, :class => 'gdlr-lms-form' do |f| %>
     <div style="margin-top:20px">
 
-    <div class="eight columns">
+    <div class="six columns">
         
         <div style="margin-left:20px;margin-right:1px">
-            <div class="six columns">
+            <div class="six columns" style="  margin-bottom: 18px;">
                 <div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;
 ">
                 <span class="gdlr-lms-form" >
-                <p>Choose a School*</p>
+                <p style="margin-bottom: 0px;">Choose a School*</p>
                 
                         <span class="gdlr-lms-combobox"  >
                             <select  name="school" id="school" style="width: 267px ">
@@ -30,11 +30,12 @@
             </div>
             <div class="clear"></div>
             
-            <div class="six columns">
+            <div class="six columns" style="  margin-bottom: 18px;
+">
                 
                 <span class="gdlr-lms-form" >
                 
-            <p>Interiew</p>
+            <p style="  margin-bottom: 0px;">Interiew</p>
                         
         <input type="radio" name="interview" id="intqyes" value="yes">&nbspyes
         <input type="radio" name="interview" id="intqno" style="margin-left:10px;" value="no">&nbspNo
@@ -118,7 +119,8 @@
         <div  style="margin-right:1px; margin-left:1px; padding:17px">
             <div class="twelve columns">
 
-                <div class="four columns">
+                <div class="four columns" style="  margin-bottom: 18px;
+">
                     
                     <p style="margin-bottom:0px">Round Applied</p>
                     
@@ -136,14 +138,16 @@
                     <p style="margin-bottom:0px">Seat</p>
                     <input type="text" name="seat"  value="" style="width: 198px;">                 
                 </div> -->
-                <div class="four columns">
+                <div class="four columns" style="  margin-bottom: 18px;
+">
                     
                     <p style="margin-bottom:0px">Date Applied</p>
                     <input type="date" name="received" id="received"  placeholder="mm/dd/yyyy" style="width: 198px;">
                     
                 </div>
                 <div class="clear"></div>
-                <div class="four columns">
+                <div class="four columns" style="  margin-bottom: 18px;
+">
                     <p style="margin-bottom:0px">Scholarship</p>
                     <input type="text" name="scholarship"  value="" style="width: 198px;" placeholder='$'>
                 </div>
@@ -153,7 +157,8 @@
                     <input type="date" name="complete" id="interviewdate" value="" style="width: 198px;">
                     
                 </div> -->
-                <div class="four columns">
+                <div class="four columns" style="  margin-bottom: 18px;
+">
                     
                     <p style="margin-bottom:0px">Date Decision Received</p>
                     <input type="date" name="descion" id="descion" value="" style="width: 198px;">
@@ -168,7 +173,7 @@
         <div class="twelve columns" style="text-align:center;align:left margin-top: 9px;">
             <input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Add Application" />
              &nbsp
-            <button class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-top:0px;padding-bottom: 10px;"><a href="<%=profile_index_path %>" style='color:inherit'>Cancel</a></button>
+            <button class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-top:0px;"><a href="<%=profile_index_path %>" style='color:inherit'>Cancel</a></button>
         </div>
         </div>
         

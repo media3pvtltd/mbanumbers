@@ -20,7 +20,8 @@ end
       
         <p class="gdlr-lms-half-left">
              <label>Full Name*</label>
-            <%= text_field_tag 'member[name]' , "",placeholder: 'Name' %></p>
+             
+            <%= text_field_tag 'member[name]' ,'',:autofocus => true ,placeholder: 'Name' %></p>
               <div class="clear"></div>    
               <p class="gdlr-lms-half-left">                                                 
             <label>User Name*</label>
@@ -35,7 +36,7 @@ end
             <label>Hometown</label>
             <%= text_field_tag 'member[hometown]' , "",placeholder: 'Hometown' %></p>
             <p class="gdlr-lms-half-left">
-            <label><span>Did you graduate college in the USA? *</span></label> 
+            <label><span>Did you Graduate College in the USA? *</span></label>
             
                         
         <input type="radio" id="question" name="member[question]" value="yes" style="width: 35px;height: 17px;"> Yes
@@ -93,7 +94,7 @@ end
                 <%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></p>
                  <p class="gdlr-lms-half-left">
 
-            <label>Work Experience And Other Information</label>
+            <label>Work Experience and Other Information</label>
             <%= text_field_tag 'member[exp]' , "",placeholder: 'Work Experience' %>
             </p>
                  <p class="gdlr-lms-half-left">
@@ -117,12 +118,12 @@ end
             </p>
             
             <p class="gdlr-lms-half-left">
-            <label style="width: 171px;">Password confirmation*</label>
+            <label style="width: 171px;">Password Confirmation*</label>
             
-            <%=password_field_tag 'password_confirmation' , "",class: 'form-control' ,placeholder: 'Retype password' %>
+            <%=password_field_tag 'password_confirmation' , "",class: 'form-control' ,placeholder: 'Retype Password' %>
             </p>
             <p class="gdlr-lms-half-left">
-            <label>Refer A Friend</label>
+           <label>Refer a Friend</label>
             <%= text_field_tag 'member[friend]' , "",placeholder: "Enter Friend's Email" %></p>
             <p class="gdlr-lms-half-left">
             <label>Photo</label>

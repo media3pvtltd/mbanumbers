@@ -59,7 +59,7 @@ before_action :check_session, :only => [:login, :create]
     # @user = Member.find_by_username(params[:username])
     unless @user.nil?
       @stuff = Stuff.find_by_member_id(@user.id)
-      @lists = Application.where('user_id=?',@user.id)
+      @lists = Application.where('user_id=?',@user.id).order('school ASC')
       @buseridcount=Bookmark.where("bookmarkuserid = ?", @user.id).count
       @comments = Comment.where('target_id=?',@user.id).paginate(:page => params[:page], :per_page => 5)
     else

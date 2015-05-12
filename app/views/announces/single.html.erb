@@ -19,12 +19,14 @@
 								<!-- get the content based on post format -->
 
 									<article id="post-859" class="post-859 post type-post status-publish format-standard has-post-thumbnail hentry category-blog category-fit-row category-life-style tag-blog tag-life-style">
+									<!-- <div style="float: right;">Back</div> -->
 										<div class="gdlr-standard-style">
 											<!--  -->
-
+											
 
 										<div class="blog-date-wrapper">
 										<span class="blog-date-day">				<%= @announce_data.created_at.strftime(" %d ") %>
+
 										</span>
 										<span class="blog-date-month">
 											<%= @announce_data.created_at.strftime(" %b") %> 
@@ -38,6 +40,11 @@
 										<header class="post-header">
 										<h1 class="gdlr-blog-title">
 											<a href="#"><%=@announce_data.title  %></a>
+											<span style="margin-left: 308px;">
+											<i class="icon-chevron-left" style="font-size: 10px;"></i>
+											<i class="icon-chevron-left" style="font-size: 10px;" ></i>
+											<a href="javascriptvoid(0)" onclick="window.history.back()" style="font-size: 14px;">Back</a>
+											</span>
 										</h1>
 
 
