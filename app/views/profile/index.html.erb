@@ -196,7 +196,7 @@ a{
               <div class="gdlr-lms-instructor-thumbnail" style="padding:8px;      height: 750px;">
               <%#binding.pry %>
                <div class="gdlr-lms-instructor-title-wrapper">
-            <%=form_tag profile_viewusers_path, :method => 'get' do |f|  %>
+    <%=form_tag profile_viewusers_path, :method => 'get' do |f|  %>
      <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;  height: 20px;',:placeholder => 'Enter member name', :id => 'tags'  %>
      <%= submit_tag 'Search',:style => 'padding: 10px;color:white; background-color:#F7BD4F;' %>
 <% end -%>
@@ -266,10 +266,13 @@ a{
                         <%#binding.pry %>
                          <span>COMMITED To
                          <% sid=current_user.commitschool.split('-') %>
-                    <% @slogo=School.find_by_id(sid[0]) %>
-                    <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />   
+                        <% #binding.pry %>           
+                    <% @slogo=School.find_by_id(sid[2]) %>
+                    
                         
-              <% a=current_user.commitschool.split('-') %> <%= a[1] %> - <%= a[2] %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> </span>
+              <% a=current_user.commitschool.split('-') %> <%= a[0] %> - <%= a[1] %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
+
+              <img alt="Icon" src="<%= @slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />   </span>
                          <% else %>
                            <span>OPEN</span>
                         <% end %></span></div>
@@ -303,12 +306,13 @@ a{
 <tr>
 <td>
         <div class="floatleft school-logo" style="margin-right:12px">
+       
                 <% sid =ad.school.split('-') %>
-                                <% @slogo=School.find_by_id(sid[0]) %>
+                                <% @slogo=School.find_by_id(sid[2]) %>
                               
                                 <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" /> 
                             </div><div><% sname=ad.school.split('-') %>
-                                        <%= sname[1] %> - <%= sname[2] %>
+                                        <%= sname[0] %> - <%= sname[1] %>
                             <br>
                             <a href="<%=schools_edit_path(ad.id)%>">
                             <i class="gdlr-icon icon-edit" style="color: black; font-size: 14px; "></i></a>

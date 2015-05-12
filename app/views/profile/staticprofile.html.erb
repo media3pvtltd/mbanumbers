@@ -6,9 +6,9 @@
         <div class="gdlr-lms-author-info-wrapper"><div class="gdlr-lms-author-thumbnail">
         <% unless @user.image.nil? %>
 
-                <%= image_tag @user.image.url, :style => "width:350px;height:250px;" %>
-                <%else %>
-                <img src="/assets/profile.png" alt="Edit Entry" style="width:350px;height:250px;" />
+              <%= image_tag @user.image.url, :style => "width:350px;height:250px;" %>
+              <%else %>
+              <img src="/assets/profile.png" alt="Edit Entry" style="width:350px;height:250px;" />
                 
                 
             <% end %>
@@ -92,10 +92,11 @@
                         <%#binding.pry %>
                          <span>COMMITED To
                          <% sid=@user.commitschool.split('-') %>
-                    <% @slogo=School.find_by_id(sid[0]) %>
-                    <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />   
+                         
+                    <% @slogo=School.find_by_id(sid[2]) %>
+                    
                         
-              <% a=@user.commitschool.split('-') %> <%= a[1] %> - <%= a[2] %>  On <%= @user.updated_at.strftime("%d-%m-%Y")  %> </span>
+              <% a=@user.commitschool.split('-') %> <%= a[0] %> - <%= a[1] %>  On <%= @user.updated_at.strftime("%d-%m-%Y")  %> <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />    </span>
                          <% else %>
                            <span>OPEN</span>
                         <% end %></span></div>
@@ -134,10 +135,10 @@
                             <td id ="td">
                             <div class="floatleft school-logo" style="margin-right:12px">
                             <% sid =f.school.split('-') %>
-                                <% @slogo=School.find_by_id(sid[0]) %>
+                                <% @slogo=School.find_by_id(sid[2]) %>
                                 <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
                             </div><% sname=f.school.split('-') %>
-                                        <%= sname[1] %> - <%= sname[2] %><br></td>
+                                        <%= sname[0] %> - <%= sname[1] %><br></td>
                             <td id="td"style="font-size:12px; text-align: center;" >$
                             <%if f.scholarship.empty? %>
                             0
