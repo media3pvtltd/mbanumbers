@@ -39,7 +39,7 @@
                by <a href="<%=static_profile_path(a.username)%>" class="username-coloured"> <%=a.username %></a>
                
               </a>
-              <i class="fa fa-arrow-right grey"></i></a> <br><%=  @topic.created_at.strftime("%d-%m-%Y") %></span> 
+              <i class="fa fa-arrow-right grey"></i></a> <br><%=  @topic.created_at.strftime("%m-%d-%Y") %></span> 
               <% else %>
               <%= "No Recent Posts" %>
               <% end %>

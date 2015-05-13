@@ -101,7 +101,7 @@
                     <% @slogo=School.find_by_id(sid[2]) %>
                     
                         
-              <% a=@user.commitschool.split('-') %> <%= a[0] %> - <%= a[1] %>  On <%= @user.updated_at.strftime("%d-%m-%Y")  %> <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />    </span>
+              <% a=@user.commitschool.split('-') %> <%= a[0] %> - <%= a[1] %>  On <%= @user.updated_at.strftime("%m-%d-%Y")  %> <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />    </span>
                          <% else %>
                            <span>OPEN</span>
                         <% end %></span></div>
@@ -180,13 +180,13 @@
                                 
                             <% end %>
                                 </td>
-                            <td id="td" style="font-size:9px;text-align:center" ><%= f.updated_at.strftime("%d-%m-%Y") %>
+                            <td id="td" style="font-size:9px;text-align:center" ><%= f.updated_at.strftime("%m-%d-%Y") %>
                             </td>
                             <td id="td" style="font-size:9px;text-align:center">
                             <%if f.interviewdate.nil? %>
                             <%="--" %>
                             <%else %>
-                            <%= f.interviewdate.strftime("%d-%m-%Y") %> 
+                            <%= f.interviewdate.strftime("%m-%d-%Y") %> 
                            <%end %>
                             </td>
                             <td id="td" style="font-size:9px;text-align:center"><%=f.choice %></td>
@@ -195,14 +195,14 @@
                               <%="--" %>
                               <%else %>
 
-                              <%= f.received.strftime("%d-%m-%Y") %> 
+                              <%= f.received.strftime("%m-%d-%Y") %> 
                               <%end %></td>
                             
                               <td id="td" style="font-size:9px;text-align:center">
                               <%if f.descion.nil? %>           
                                Not Decided
                                <%else %>
-                              <%= f.descion.strftime("%d-%m-%Y") %></td>
+                              <%= f.descion.strftime("%m-%d-%Y") %></td>
                              
                             <%end %>
                                 
