@@ -114,9 +114,11 @@ a{
                 
             <% end %></div>
         <div class="gdlr-lms-author-title-wrapper">
-        <div class="gdlr-lms-author-name"><%=current_user.username %></div>
+        <div class="gdlr-lms-author-name"><%=current_user.username.capitalize %></div>
+        <div style="margin-top: 11px;  margin-bottom: 29px;">
         <div class="hover">
-                    <%= image_tag 'congo.png'%>
+                    <%= image_tag 'congo.png', :style => "  margin-top: -10px;
+"%>
                     <div class="tooltip">
                             <%
                                 @username=Like.where('puser_id = ?',current_user.id)
@@ -158,7 +160,7 @@ a{
                           
 
                          </div>  Have Congratulated You
-        
+                          </div>
         <div class="gdlr-lms-author-position"> GPA: <%= number_with_precision(current_user.gpa, precision: 2)  %>
                            <br> 
                             GMAT: <%=current_user.gmat_score %> | Class of <%=current_user.year %></div></div>
@@ -360,13 +362,13 @@ a{
                             <% end %>
                                 </td>
 
-                            <td id="td"  style="font-size:9px; text-align: center;"><%= ad.updated_at.strftime("%m/%d/%Y") %>
+                            <td id="td"  style="font-size:9px; text-align: center;"><%= ad.updated_at.strftime("%d/%m/%Y") %>
                             </td>
                             <td id="td" style="font-size:9px; text-align: center;">
                             <%if ad.interviewdate.nil? %>
                             <%="--" %>
                             <%else %>
-                            <%= ad.interviewdate.strftime("%m/%d/%Y") %> 
+                            <%= ad.interviewdate.strftime("%d-%m-%Y") %> 
                             <%end %>
                             </td>
 
@@ -376,7 +378,7 @@ a{
                               <%="--" %>
                               <%else %>
 
-                              <%= ad.received.strftime("%m/%d/%Y") %> 
+                              <%= ad.received.strftime("%d/%m/%Y") %> 
                               <%end %>
                              <%#binding.pry %></td>
 
@@ -386,7 +388,7 @@ a{
                                Not Decided
                                <%else %>
                               
-                                <%= ad.descion.strftime("%m/%d/%Y") %>
+                                <%= ad.descion.strftime("%d/%m/%Y") %>
                                <%end %> 
                                           </td>
 </tr>

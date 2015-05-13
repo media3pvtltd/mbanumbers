@@ -14,7 +14,7 @@
             <% end %>
         </div>
         <div class="gdlr-lms-author-title-wrapper">
-        <div class="gdlr-lms-author-name"><%= @user.username %></div>
+        <div class="gdlr-lms-author-name"><%= @user.username.capitalize %></div>
         <div class="gdlr-lms-author-position">
 
       <!--  ---------------------- add cong pic -- ---------------------- -->
@@ -24,11 +24,13 @@
         <% unless @user.commitschool.nil? %>
         <% @likeuser=Like.where('cuser_id =? AND puser_id =?',current_user.id,@user.id)%>
            <% if @likeuser.empty? %>
-                <a href="javascript:void(0)" id="like" style="float:left;"> <%= image_tag 'congo.png', :style => 'margin-top: -1px;'%> </a>
+                <a href="javascript:void(0)" id="like" style="float:left;"> <%= image_tag 'congo.png', :style => 'margin-top: -1px; mar'%> </a>
             <% end %>
                 <a href="javascript:void(0)" id="dislike" style="display:none;float:left"><%= image_tag 'congo.png', :style => 'margin-top: -1px;' %></a>
-            <label id="content2" style="margin-left: 10px;"> Be the first person to congratulate <%= @user.username %></label>
-            <label id="content1" style="display:none;"> You sucessfully congratulate the <%= @user.username %></label>
+            <label id="content2" style="margin-left: 10px;   margin-top: 11px;
+"> Congratulate to Mr/Mrs.<%= @user.username .capitalize %></label>
+            <label id="content1" style="display:none;   margin-top: 11px;
+"> You sucessfully congratulate the <%= @user.username %></label>
                
             
 <% end %>
@@ -38,10 +40,13 @@
 
 
       <!--  ---------------------- add cong pic -- ---------------------- -->
-
+      <div style="  margin-top: 28px;">
         GPA: <%= number_with_precision(@user.gpa, precision: 2)  %>
                            <br> 
                             GMAT: <%=@user.gmat_score %> | Class of <%=@user.year %>
+      </div>
+
+        
 
         </div>
         </div>
@@ -190,14 +195,14 @@
                               <%="--" %>
                               <%else %>
 
-                              <%= f.received.strftime("%m-%d-%Y") %> 
+                              <%= f.received.strftime("%d-%m-%Y") %> 
                               <%end %></td>
                             
                               <td id="td" style="font-size:9px;text-align:center">
                               <%if f.descion.nil? %>           
                                Not Decided
                                <%else %>
-                              <%= f.descion.strftime("%m-%d-%Y") %></td>
+                              <%= f.descion.strftime("%d-%m-%Y") %></td>
                              
                             <%end %>
                                 

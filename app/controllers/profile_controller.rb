@@ -60,7 +60,8 @@ before_action :check_session, :only => [:login, :create]
     unless @user.nil?
       @stuff = Stuff.find_by_member_id(@user.id)
       @lists = Application.where('user_id=?',@user.id).order('school ASC')
-      @buseridcount=Bookmark.where("bookmarkuserid = ?", @user.id).count
+       @buseridcount=Bookmark.where("bookmarkuserid = ? and currentuserid =?", @user.id,session[:user_id]
+).count
       @comments = Comment.where('target_id=?',@user.id).paginate(:page => params[:page], :per_page => 5)
     else
        flash[:error]="Username Not Found"
