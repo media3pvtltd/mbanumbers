@@ -48,11 +48,11 @@
 							<th id ="th">School</th>
 						</tr>
 							<% @states.each do |t| %>
-							 <tr>
+							 <tr style="font-size:15px; ">
 							 	
 								<td style="padding:10px;color: #453232;"> 
 								<%= t.name %></td>
-                                <td style="padding:10px"> 
+                                <td style="padding:10px;text-align:left"> 
                                 <% a= School.where("state_id= ?" , t.id) %>
                                 
                    				<% a.each_with_index do |key, index| %>

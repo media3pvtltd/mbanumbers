@@ -46,15 +46,16 @@
                 <div class="with-sidebar-wrapper" id="base-cont">
 
                     <div class="profile_blog_lft" style="border:none">
-                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                <%=image_tag '3.jpg' %>
                 </div>
                    
                    <div class="nine columns">
                        <%= yield %>
                    </div>
-                     <div class="profile_blog_rgt" style="border:none">
-                      <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                   </div> 
+                     <!-- <div class="profile_blog_rgt" style="border:none">
+                      <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                   </div> --> 
                    <div class="clear"></div>
                 </div>
             </div>

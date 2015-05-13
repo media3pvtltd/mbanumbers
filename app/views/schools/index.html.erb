@@ -66,7 +66,7 @@
                         <th id ="th">USN</th>
                     </tr>
                     <% @schools.each do |t| %>
-                    <tr>
+                    <tr style="font-size:15px">
                             <td style="border-right:none"><img alt="Icon" src="<%= t.image.thumb('150x150').url %>" style="width: 60px; height: 41px;" />
                     </td>
                             <td style="border-left:none"> <a href="<%= school_appinfo_path(t.business_school) %>" style="color:#453232;">
