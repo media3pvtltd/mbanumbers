@@ -74,8 +74,8 @@ a{
 
 #style-4::-webkit-scrollbar-track
 {
-  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-  background-color: #F5F5F5;
+  /*-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+  background-color: #F5F5F5;*/
 }
 
 #style-4::-webkit-scrollbar
@@ -193,7 +193,7 @@ a{
               <div class="gdlr-lms-author-name" style="  text-align: center;  background: white;  color: black;">Bookmarked Profiles</div>
               <div class="scrollbar" id="style-4">
       <div class="force-overflow">
-              <div class="gdlr-lms-instructor-thumbnail" style="padding:8px;      height: 750px;">
+              <div class="gdlr-lms-instructor-thumbnail" style="padding:8px; ">
               <%#binding.pry %>
                <div class="gdlr-lms-instructor-title-wrapper">
     <%=form_tag profile_viewusers_path, :method => 'get' do |f|  %>
@@ -245,14 +245,14 @@ a{
                                
                             
         <div class="gdlr-lms-extra-info location">
-        <span class="gdlr-head">Hometown/Zipcode:</span>
+        <span class="gdlr-head">Hometown/Zipcode</span>
         <span class="gdlr-tail"><%=current_user.hometown %></span>
         </div>
-        <div class="gdlr-lms-extra-info current-work"><span class="gdlr-head">Undergraduate:</span>
+        <div class="gdlr-lms-extra-info current-work"><span class="gdlr-head">Undergraduate</span>
         <span class="gdlr-tail"><%=current_user.undergraduate_school %></span>
         </div>
         <div class="gdlr-lms-extra-info past-work">
-        <span class="gdlr-head">Work Experience and Other Information:</span>
+        <span class="gdlr-head">Work Experience and Other Information</span>
         <span class="gdlr-tail"><%if current_user.exp.blank?  %>
                          <span><%="--" %></span>
                         <%else %> 
@@ -261,7 +261,7 @@ a{
                         <%end %></span>
         </div>
         <div class="gdlr-lms-extra-info specialist">
-        <span class="gdlr-head">Status:</span>
+        <span class="gdlr-head">Status</span>
         <span class="gdlr-tail"><% unless current_user.commitschool.nil? %>  
                         <%#binding.pry %>
                          <span>COMMITED To
@@ -277,7 +277,7 @@ a{
                            <span>OPEN</span>
                         <% end %></span></div>
         <div class="gdlr-lms-extra-info experience">
-        <span class="gdlr-head">Program Type:</span>
+        <span class="gdlr-head">Program Type</span>
 
         <span class="gdlr-tail"><%@program= Application.find_by_user_id(current_user.id)%>
                          <%if @program.nil? %>
@@ -310,7 +310,7 @@ a{
                 <% sid =ad.school.split('-') %>
                                 <% @slogo=School.find_by_id(sid[2]) %>
                               
-                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" /> 
+                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;padding:10px" /> 
                             </div><div><% sname=ad.school.split('-') %>
                                         <%= sname[0] %> - <%= sname[1] %>
                             <br>

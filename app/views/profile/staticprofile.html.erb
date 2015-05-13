@@ -68,17 +68,17 @@
 
          <div class="gdlr-lms-author-content-wrapper">
 
-         <div class="gdlr-lms-author-extra-info-wrapper">
+         <div class="gdlr-lms-author-extra-info-wrapper" style="  letter-spacing: 1.5px;" >
 
          <div class="gdlr-lms-extra-info location">
-        <span class="gdlr-head">Hometown/Zipcode:</span>
+        <span class="gdlr-head">Hometown/Zipcode</span>
         <span class="gdlr-tail"><%=@user.hometown %></span>
         </div>
-        <div class="gdlr-lms-extra-info current-work"><span class="gdlr-head">Undergraduate:</span>
+        <div class="gdlr-lms-extra-info current-work"><span class="gdlr-head">Undergraduate</span>
         <span class="gdlr-tail"><%=@user.undergraduate_school %></span>
         </div>
         <div class="gdlr-lms-extra-info past-work">
-        <span class="gdlr-head">Work Experience and Other Information:</span>
+        <span class="gdlr-head">Work Experience and Other Information</span>
         <span class="gdlr-tail"><%if @user.exp.blank?  %>
                          <span><%="--" %></span>
                         <%else %> 
@@ -87,7 +87,7 @@
                         <%end %></span>
         </div>
         <div class="gdlr-lms-extra-info specialist">
-        <span class="gdlr-head">Status:</span>
+        <span class="gdlr-head">Status</span>
         <span class="gdlr-tail"><% unless @user.commitschool.nil? %>  
                         <%#binding.pry %>
                          <span>COMMITED To
@@ -101,7 +101,7 @@
                            <span>OPEN</span>
                         <% end %></span></div>
                        <div class="gdlr-lms-extra-info experience">
-        <span class="gdlr-head">Program Type:</span>
+        <span class="gdlr-head">Program Type</span>
 
         <span class="gdlr-tail"><%@program= Application.find_by_user_id(@user.id)%>
                          <%if @program.nil? %>
@@ -136,7 +136,7 @@
                             <div class="floatleft school-logo" style="margin-right:12px">
                             <% sid =f.school.split('-') %>
                                 <% @slogo=School.find_by_id(sid[2]) %>
-                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px;" />
+                                <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px; padding:10px" />
                             </div><% sname=f.school.split('-') %>
                                         <%= sname[0] %> - <%= sname[1] %><br></td>
                             <td id="td"style="font-size:12px; text-align: center;" >$
