@@ -29,7 +29,6 @@
 //= require gdlr-script
 //= require masterslider.min
 //= require jquery.noty
-//= require nprogress
-//= require nprogress-turbolinks
+
 //= require owl.carousel
 
