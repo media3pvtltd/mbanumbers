@@ -68,7 +68,7 @@
 
          <div class="gdlr-lms-author-content-wrapper">
 
-         <div class="gdlr-lms-author-extra-info-wrapper" style="  letter-spacing: 1.5px;" >
+         <div class="gdlr-lms-author-extra-info-wrapper" style="  letter-spacing: 1.5px;margin-right: 15px;" >
 
          <div class="gdlr-lms-extra-info location">
         <span class="gdlr-head">Hometown/Zipcode</span>
@@ -120,12 +120,18 @@
 <tr>
 <th style="text-align: center;font-size:13px;" >School</th>
                             <th style="text-align: center;  font-size: 13px;  padding: 7px;">Scholarship <br> ($)</th>
-                            <th style="text-align: center;  font-size: 13px;">Status</th>
-                            <th style="text-align: center;  font-size: 13px;">Last Updated</th>
-                            <th style="text-align: center;  font-size: 13px;">Interview Date</th>
-                            <th style="text-align: center;  font-size: 13px;">Round Applied</th>
-                            <th style="text-align: center;  font-size: 13px;">Date Applied</th>
-                            <th style="text-align: center;  font-size: 13px;">Date Decision Recived</th>
+                            <th style="text-align: center;  font-size: 13px; padding: 6px;
+">Status</th>
+                            <th style="text-align: center;  font-size: 13px;padding: 6px;
+">Last Updated</th>
+                            <th style="text-align: center;  font-size: 13px;padding: 6px;
+">Interview Date</th>
+                            <th style="text-align: center;  font-size: 13px;padding: 6px;
+">Round Applied</th>
+                            <th style="text-align: center;  font-size: 13px;padding: 6px;
+">Date Applied</th>
+                            <th style="text-align: center;  font-size: 13px;padding: 6px;
+">Date Decision Received</th>
 </tr>
 <% @lists.each do |f| %>
                             <!-- <tr <% #if f.status== "Accepted"  %> style = "background-color:#2267CA" <%# elsif f.status=="Rejected" %> 
@@ -191,7 +197,7 @@
                               <%if f.descion.nil? %>           
                                Not Decided
                                <%else %>
-                              <%= f.descion.strftime("%d-%m-%Y") %></td>
+                              <%= f.descion.strftime("%m-%d-%Y") %></td>
                              
                             <%end %>
                                 
