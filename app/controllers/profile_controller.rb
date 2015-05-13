@@ -103,7 +103,8 @@ before_action :check_session, :only => [:login, :create]
   #   end
   # end
   def bookmark
-    @buseridcount=Bookmark.where("bookmarkuserid = ?", params[:bookmarkuserid]).count
+    @buseridcount=Bookmark.where("bookmarkuserid = ? and currentuserid =?" , params[:bookmarkuserid],session[:user_id]).count
+     
     if @buseridcount < 1
       @data= Bookmark.new(req_params)
         if @data.save
