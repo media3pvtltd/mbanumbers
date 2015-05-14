@@ -1,3 +1,15 @@
+<div class="gdlr-item gdlr-divider-item"></div>
+<% 
+def addthree(max)
+    # Return a sequence incremented by three up to the max.
+    i = 200
+    while i <= max
+    yield i
+    i += 10
+    end
+end
+%>
+
 <style type="text/css">
     .hover {
     position:relative;
@@ -323,13 +335,17 @@ a{
                             </div><div><% sname=ad.school.split('-') %>
                                         <%= sname[0] %> - <%= sname[1] %>
                             <br>
-                            <a href="<%=schools_edit_path(ad.id)%>">
+                            <div style="  text-align: right;">
+                              <a href="<%=schools_edit_path(ad.id)%>">
                             <i class="gdlr-icon icon-edit" style="color: blue; font-size: 14px; "></i></a>
-                            <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: red; font-size: 14px; "></i></a>
+                            <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: red; font-size: 14px; "></i></a><br></div>
+                              <div style="text-align:center"> 
                             <% if ad.status=="Accepted"%>
                            
           <input type="hidden" id = "commitsname<%= k %>" value="<%= ad.school %>">
-            <a href="javascript:void(0)" id="commit<%= k %>" style="green">Commit</a></div>
+            <a href="javascript:void(0)" id="commit<%= k %>" style="green">Commit</a>
+                            </div>
+                            </div>
         <%end %>
                 </td>
 <td style="padding: 6px;"><%if ad.scholarship.empty? %>
@@ -483,10 +499,26 @@ if($("#member_status").val()=="Commited")
                 
                 <%#binding.pry %>
             <%= text_field_tag 'member[gpa]' ,  '%.2f' %  current_user.gpa ,placeholder: 'GPA ' %></p>
-            <p class="gdlr-lms-half-left">
-            
-             <label>GMAT Score</label>  
-             <%= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></p>
+             <p class="gdlr-lms-half-left">
+            <label style="color:black">GMAT Score</label>
+            <span class="gdlr-lms-combobox"  >
+            <select name="member[gmat_score]" style="  width: 100%;" id="gmat">
+                  <option value="">-----Select----</option>
+                  <% addthree(800) do |n| %>
+                     <option value="<%= n %>"><%= n %></option>
+                  <% end %>
+                
+              </select>
+              <script type="text/javascript">
+        for(var i=0;i<document.getElementById('gmat').length;i++)
+        {
+            if(document.getElementById('gmat').options[i].value=="<%= current_user.gmat_score  %>")
+            {
+                    document.getElementById('gmat').options[i].selected=true
+            }
+        }          
+            </script>
+            <%#= text_field_tag 'member[gmat_score]' , current_user.gmat_score,placeholder: 'GMAT Score' %></span></p>
 
              <p class="gdlr-lms-half-left">
             <label>Work Experience and Other Information</label>
