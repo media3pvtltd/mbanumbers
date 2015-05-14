@@ -25,6 +25,8 @@
  *= require slider/master_slider
  *= require slider/custom
  *= require animate
+ *= require nprogress
+ *= require nprogress-bootstrap
  
  *= require owl.carousel
  *= require owl.theme

@@ -72,7 +72,7 @@ gem 'dragonfly', '~> 1.0.7'
 
 
 gem 'refinerycms-testimonials', path: 'vendor/extensions'
-#gem 'nprogress-rails'
+gem 'nprogress-rails'
 
 gem 'refinerycms-forums', path: 'vendor/extensions'
  
