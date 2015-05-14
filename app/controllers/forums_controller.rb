@@ -22,6 +22,7 @@ layout 'homepage'
   
   end
   def topic_new
+     @title = "Forum"
     @topic = Topic.new(params.permit(:refforum_id, :name))
     @topic.member_id = session[:user_id]
     if @topic.save
@@ -30,7 +31,7 @@ layout 'homepage'
     end
   end
   def posts
-
+     @title = "Forum"
     @posts = Topic.find(params[:topic]).posts
   end
   def post_new
