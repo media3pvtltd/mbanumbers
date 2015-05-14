@@ -11,7 +11,7 @@ layout 'homepage'
     @title = "Forum"
   end
   def topics
-   
+   @title = "Forum"
     @q = Refforum.ransack(params[:q])
     @forum_data = @q.result(distinct: true)
     @forum_data = Refforum.find(params[:id])

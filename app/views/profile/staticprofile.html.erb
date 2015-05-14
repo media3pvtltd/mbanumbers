@@ -150,13 +150,13 @@
                                 <img alt="Icon" src="<%=@slogo.image.thumb('150x150').url %>" style="width: 100px; height: 41px; padding:10px" />
                             </div><% sname=f.school.split('-') %>
                                         <%= sname[0] %> - <%= sname[1] %><br></td>
-                            <td id="td"style="font-size:12px; text-align: center;" >$
+                            <td id="td"style="font-size:12px; text-align: center;padding: 6px;padding: 6px;" >$
                             <%if f.scholarship.empty? %>
                             0
                             <%else %>
                             <%= f.scholarship %>
                             <%end %></td>
-                            <td id="td" style="font-size:9px; text-align: center;">
+                            <td id="td" style="font-size:9px; text-align: center;padding: 6px;">
                             <% if f.status == "Waitlisted" %>
                             <%= f.status %>
                                 <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; text-ailgn:center "></i>
@@ -180,29 +180,29 @@
                                 
                             <% end %>
                                 </td>
-                            <td id="td" style="font-size:9px;text-align:center" ><%= f.updated_at.strftime("%m-%d-%Y") %>
+                            <td id="td" style="font-size:9px;text-align:center;padding: 6px;" ><%= f.updated_at.strftime("%m/%d/%Y") %>
                             </td>
-                            <td id="td" style="font-size:9px;text-align:center">
+                            <td id="td" style="font-size:9px;text-align:center;padding: 6px;">
                             <%if f.interviewdate.nil? %>
                             <%="--" %>
                             <%else %>
-                            <%= f.interviewdate.strftime("%m-%d-%Y") %> 
+                            <%= f.interviewdate.strftime("%m/%d/%Y") %> 
                            <%end %>
                             </td>
-                            <td id="td" style="font-size:9px;text-align:center"><%=f.choice %></td>
-                            <td id="td" style="font-size:9px;text-align:center">
+                            <td id="td" style="font-size:9px;text-align:center;padding: 6px;"><%=f.choice %></td>
+                            <td id="td" style="font-size:9px;text-align:center;padding: 6px;">
                             <%if f.received.nil? %>
                               <%="--" %>
                               <%else %>
 
-                              <%= f.received.strftime("%m-%d-%Y") %> 
+                              <%= f.received.strftime("%m/%d/%Y") %> 
                               <%end %></td>
                             
-                              <td id="td" style="font-size:9px;text-align:center">
+                              <td id="td" style="font-size:9px;text-align:center;padding: 6px;">
                               <%if f.descion.nil? %>           
                                Not Decided
                                <%else %>
-                              <%= f.descion.strftime("%m-%d-%Y") %></td>
+                              <%= f.descion.strftime("%m/%d/%Y") %></td>
                              
                             <%end %>
                                 

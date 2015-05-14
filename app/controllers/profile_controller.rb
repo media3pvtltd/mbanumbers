@@ -57,15 +57,19 @@ before_action :check_session, :only => [:login, :create]
       @user = Member.find_by_username(params[:username])
     # end
     # @user = Member.find_by_username(params[:username])
-    unless @user.nil?
-      @stuff = Stuff.find_by_member_id(@user.id)
-      @lists = Application.where('user_id=?',@user.id).order('school ASC')
-       @buseridcount=Bookmark.where("bookmarkuserid = ? and currentuserid =?", @user.id,session[:user_id]
-).count
-      @comments = Comment.where('target_id=?',@user.id).paginate(:page => params[:page], :per_page => 5)
-    else
+    if params[:username] != current_user.username
+      unless @user.nil?
+        @stuff = Stuff.find_by_member_id(@user.id)
+        @lists = Application.where('user_id=?',@user.id).order('school ASC')
+        @buseridcount=Bookmark.where("bookmarkuserid = ? and currentuserid =?", @user.id,session[:user_id]
+        ).count
+        @comments = Comment.where('target_id=?',@user.id).paginate(:page => params[:page], :per_page => 5)
+      else
        flash[:error]="Username Not Found"
       redirect_to profile_index_path
+      end
+    else
+       redirect_to profile_index_path
     end
   end
 

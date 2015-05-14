@@ -332,12 +332,12 @@ a{
             <a href="javascript:void(0)" id="commit<%= k %>" style="green">Commit</a></div>
         <%end %>
                 </td>
-<td><%if ad.scholarship.empty? %>
+<td style="padding: 6px;"><%if ad.scholarship.empty? %>
                             0
                             <%else %>
                             <%= ad.scholarship %>
                             <%end %></td>
-<td id="td" style="font-size:9px; text-align: center;">
+<td id="td" style="font-size:9px; text-align: center;padding: 6px;">
                             <% if ad.status == "Waitlisted" %>
                             <%= ad.status %>
                                 <i class="gdlr-icon icon-circle-blank" style="color: #91d549; font-size: 16px; text-ailgn:center "></i>
@@ -362,9 +362,9 @@ a{
                             <% end %>
                                 </td>
 
-                            <td id="td"  style="font-size:9px; text-align: center;"><%= ad.updated_at.strftime("%m/%d/%Y") %>
+                            <td id="td"  style="font-size:9px; text-align: center;padding: 6px;"><%= ad.updated_at.strftime("%m/%d/%Y") %>
                             </td>
-                            <td id="td" style="font-size:9px; text-align: center;">
+                            <td id="td" style="font-size:9px; text-align: center;padding: 6px;">
                             <%if ad.interviewdate.nil? %>
                             <%="--" %>
                             <%else %>
@@ -372,7 +372,7 @@ a{
                             <%end %>
                             </td>
 
-                            <td id="td" style="font-size:9px; text-align: center;"><%=ad.choice %></td>
+                            <td id="td" style="font-size:9px; text-align: center;padding: 6px;"><%=ad.choice %></td>
                              <td id="td" style="font-size:9px; text-align: center;  padding: 6px;">
                               <%if ad.received.nil? %>
                               <%="--" %>
@@ -383,7 +383,7 @@ a{
                              <%#binding.pry %></td>
 
                            
-                              <td id="td" style="font-size:9px; text-align: center;">
+                              <td id="td" style="font-size:9px; text-align: center;padding: 6px;">
                                          <%if ad.descion.nil? %>           
                                Not Decided
                                <%else %>

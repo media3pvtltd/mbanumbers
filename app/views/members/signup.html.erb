@@ -24,7 +24,7 @@ end
             <%= text_field_tag 'member[name]' ,'',:autofocus => true ,placeholder: 'Name' %></p>
               <div class="clear"></div>    
               <p class="gdlr-lms-half-left">                                                 
-            <label>User Name*</label>
+            <label>User Name*(Username should be contain 6 characters)</label>
             <%= text_field_tag 'member[username]' , "",placeholder: 'User Name' %></p>
             <p class="gdlr-lms-half-left">
             <label>Email Address*</label>
@@ -47,11 +47,12 @@ end
             <div style="display:none;" id="stated">
             <p class="gdlr-lms-half-left">
             
-            <label style="width: 172px;margin-top: 10px;">State</label>
+            <label >State</label>
             
             
             <span class="gdlr-lms-combobox" >
-            <select name="state" class="gdlr-lms-combobox" id="state" >
+            <select name="state" class="gdlr-lms-combobox" id="state" style="  width: 100%;
+">
                         <option value="">-----------Select State----------</option>
                         <% @state.each do |s| %>
                           <option value="<%= s.id %>"><%= s.states %></option>  
@@ -60,7 +61,7 @@ end
     </select>
                         </span></p>
                         <p class="gdlr-lms-half-left">
-            <label style="width: 172px";>Undergraduate Year*</label> 
+            <label >Undergraduate Year*</label> 
 
             
             <span class='gdlr-lms-combobox' style="width: 150px;">
@@ -71,7 +72,7 @@ end
                         <p class="gdlr-lms-half-left">
             <label >Undergraduate School*</label>
             <span class="gdlr-lms-combobox" >
-            <select name="undergraduate_school" id="undergraduate_school" >
+            <select name="undergraduate_school" id="undergraduate_school" style="  width: 100%;" >
                 <option value="">-----------Select School----------</option>
                    
             </select>
@@ -100,8 +101,8 @@ end
                  <p class="gdlr-lms-half-left">
             <label>GMAT Score</label>
             
-            <span class="gdlr-lms-combobox" style="width: 150px;">
-              <select name="member[gmat_score]">
+            <span class="gdlr-lms-combobox" >
+              <select name="member[gmat_score]" style="  width: 100%;">
                   <option value="">-----Select----</option>
                   <% addthree(800) do |n| %>
                      <option value="<%= n %>"><%= n %></option>
@@ -128,7 +129,8 @@ end
             <p class="gdlr-lms-half-left">
             <label>Photo</label>
             
-                <%= f.file_field :image, class: 'form-control'%>
+                <%= f.file_field :image, class: 'form-control', :style=> "  border-color: rgb(227, 227, 227);
+"%>
             </p>
                 
             

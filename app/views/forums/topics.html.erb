@@ -1,4 +1,9 @@
 <div>
+
+<div class="gdlr-item gdlr-divider-item"></div>
+
+<div class="gdlr-lms-container gdlr-lms-container">
+        <div class="gdlr-lms-item">
 <div class="one columns" style="margin-top: 30px;
 "><%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %></div>
 <div class="one columns"></div>
@@ -56,7 +61,7 @@
 	<ul class="topiclist">
 		<li class="header">
 			<dl class="icon">
-				<dt class="header-name">Topics</dt>
+				<dt class="header-name" style="text-align:center">Topics</dt>
 				<dd class="posts">Replies</dd>
 				<dd class="views">Views</dd>
 				<dd class="lastpost"><span>Last post</span></dd>
@@ -67,16 +72,10 @@
 
 	<%@topics.each do |t| %>
 		<li class="row bg1">
-			<dl >
+			<dl class="icon" style="background-image: url(./styles/marina_teal/imageset/topic_read.svg); background-repeat: no-repeat;" >
 				
 			
-                <dt>
-
-
-
-
-
-			<a href="<%= forum_posts_path(t.id) %>" class="topictitle"><%= t.name.capitalize %></a>
+                <dt style="background-image: url(<%#=t.member.image.thumb('32x32').url unless t.member.nil? %>); background-repeat: no-repeat;background-position:0 2px" title="No unread posts"><a href="<%#= forum_posts_path(t.id) %>" class="topictitle"><%= t.name.capitalize %></a>
 					<br>
 					by <a href="<%=static_profile_path(t.member.username) unless t.member.nil? %>" style="color: #AA0000;" class="username-coloured"><%=t.member.username unless t.member.nil?%></a> » <%=t.created_at.strftime('%A, %d %b %Y %l:%M %p') %>
 				</dt>
@@ -100,4 +99,6 @@
 <div class="clear"></div>
 </div>
 <div class="clear"></div>
+</div>
+</div>
 </div>

@@ -1,21 +1,18 @@
-<div class="" style="border:none">
-<div class="" style="width: 1042px; padding-top:0px">
- <span style="color: rgb(219, 103, 103);margin-left: 316px;" id="error"></span>
-<%= form_tag schools_create_path, :class => 'gdlr-lms-form' do |f| %>
-    <div style="margin-top:20px">
+<div class="gdlr-lms-container gdlr-lms-container">
+                    <div class="gdlr-lms-item">
+                     <div class="profile_blog_lft" style="border:none">
+                <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                <%=image_tag '3.jpg' %>
+                </div>                     
 
-    <div class="six columns">
-        
-        <div style="margin-left:20px;margin-right:1px">
-            <div class="six columns" style="  margin-bottom: 18px;">
-                <div class="gdlr-lms-item" style="margin-left: 1px;width: 281px;
-">
-                <span class="gdlr-lms-form" >
-                <p style="margin-bottom: 0px;">Choose a School*</p>
-                
-                        <span class="gdlr-lms-combobox"  >
-                            <select  name="school" id="school" style="width: 267px ">
-                            <option value="" >-----------Select school----------</option>
+                <div class="nine column" style="padding:10px">
+                    <%= form_tag schools_create_path, :class => 'gdlr-lms-form' do |f| %>
+
+                    <p class="gdlr-lms-half-left">
+            <label >Choose a School*</label>
+            <span class="gdlr-lms-combobox" >
+           <select  name="school" id="school" style="width:100% ">
+                            <option value="" >-----------Select School----------</option>
                             <% @school_name.each do |sn| %>
                                  <option value="<%= sn.business_school    %> - <%= sn.university%> -<%= sn.id %>">
                                      <%= sn.business_school  %> -  <%= sn.university %> 
@@ -23,37 +20,15 @@
                             <% end %>
                                   
                             </select>
-                        </span>
-                </span>
-                
-                </div>
-            </div>
-            <div class="clear"></div>
             
-            <div class="six columns" style="  margin-bottom: 18px;
-">
-                
-                <span class="gdlr-lms-form" >
-                
-            <p style="  margin-bottom: 0px;">Interiew</p>
+                        </span></p>
+
                         
-        <input type="radio" name="interview" id="intqyes" value="yes">&nbspYes
-        <input type="radio" name="interview" id="intqno" style="margin-left:10px;" value="no">&nbspNo
-                        
-                </span>
-                
-                </div>
-            </div>
-        </div>
-        <div style="margin-left:1px;margin-right:1px; padding:17px">
-            <div class="twelve columns">
-            <span class="gdlr-lms-form" >
-                <div>
-                
-                <div class="three columns">
-                    <p style="margin-bottom:0px">Status*</p>
-                            <span class="gdlr-lms-combobox" style="width: 158px;">
-                            <select  name="status" id="status">
+
+                        <p class="gdlr-lms-half-left">
+            <label >Status*</label>
+            <span class="gdlr-lms-combobox" >
+                            <select  name="status" id="status" style="width: 100%;">
                                 <option value="">-Select-</option>
                                 <option value="Intend to Apply">Intend to Apply
                                 </option>
@@ -64,131 +39,80 @@
                                 <option value="WL, Rejected">WL, Rejected   </option>
                                 <option value="Pending">Pending</option>
                             </select>
-                        </span>
-                </div>
-                <!-- <div class="three columns" >
-                    <p style="margin-bottom:0px">Application Type</p>
-                    <span class="gdlr-lms-combobox" style="width: 158px;">
-                            <select name="application_type" id="application_type">
-                                <option value="">-Select-</option>
-                                <option value="Regular Application">Regular Application</option>
-                                <option value="Rejected">Rejected</option>
-                                <option value="Accepted">Accepted</option>
-                                <option value="Waitlisted">Waitlisted   </option>
-                                <option value="WL, Accepted">WL, Accepted</option>
-                                <option value="WL, Rejected">WL, Rejected</option>
-                                <option value="Pending">Pending</option>
-            
-                            </select>
-                        </span>
-                </div> -->
-                <div class="three columns">
-                    <p style="margin-bottom:0px">Program*</p>
-                    <span class="gdlr-lms-combobox" style="width: 158px;">
-                            <select  name="program" id="program">
+                        </span></p>
+
+                        <p class="gdlr-lms-half-left">
+            <label >Program*</label>
+            <span class="gdlr-lms-combobox" >
+                            <select  name="program" id="program" style="width: 100%;">
                                 <option value="">-Select-</option>
                                 <option value="Full Time">Full Time</option>
                                 <option value="Part Time">Part Time</option>
                         
                             </select>
-                        </span>
-                </div>
-                
-                <div class="three columns" style="display:none;" id="intdate">
-                    
-                        <p style="margin-bottom:0px">Interview Date</p>
-                     
-                     <input type="date" name="interviewdate" id="interviewdate" value="" style="width: 198px;">
-                </div>
-                </div>
-                <!-- <div class="twelve columns">
-                    <div class="four columns">
-                        <input type="checkbox" name="Attending" value="Attending">Attending
-                    </div>
-                    <div class="four columns">
-                        <input type="checkbox" name="Withdrawn" value="Withdrawn">Withdrawn 
-                    </div>
-                    <div class="four columns">
-                        <input type="checkbox" name="Deferred" value="Deferred">Deferred 
-                    </div>              
-                </div> -->
-                        </div>
-                        
-            <div class="clear"></div>
-        </div>
-        <div  style="margin-right:1px; margin-left:1px; padding:17px">
-            <div class="twelve columns">
+                        </span></p>
+                        <p class="gdlr-lms-half-left">
+            <label >Interview Date*</label>
+            
+            <input type="radio" name="interview" id="intqyes" value="yes">&nbspYes
+        <input type="radio" name="interview" id="intqno" style="margin-left:10px;" value="no">&nbspNo
+            
+                        </p>
+                        <p class="gdlr-lms-half-left" style="display:none;" id="intdate" style="  width: 100%;">
+            
+            <label >Interview Date</label>
+            
+            
+            <span class="gdlr-lms-combobox" >
+            
+                        <input type="date" name="interviewdate" id="interviewdate" value="" >
+                                  
+    
+                        </span></p>
 
-                <div class="four columns" style="  margin-bottom: 18px;
-">
-                    
-                    <p style="margin-bottom:0px">Round Applied</p>
-                    
-                    <span class="gdlr-lms-combobox" style="width: 158px;">
+                        
+
+                        <p class="gdlr-lms-half-left">
+            <label >Round's Applied</label>
+            <span class="gdlr-lms-combobox" style="width: 158px;">
                         <select name="choice" id="program">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
                         
                             </select>                   
-                    </span> 
-                </div>
-                <!-- <div class="four columns">
-                    
-                    <p style="margin-bottom:0px">Seat</p>
-                    <input type="text" name="seat"  value="" style="width: 198px;">                 
-                </div> -->
-                <div class="four columns" style="  margin-bottom: 18px;
-">
-                    
-                    <p style="margin-bottom:0px">Date Applied</p>
-                    <input type="date" name="received" id="received"  placeholder="mm/dd/yyyy" style="width: 198px;">
-                    
-                </div>
-                <div class="clear"></div>
-                <div class="four columns" style="  margin-bottom: 18px;
-">
-                    <p style="margin-bottom:0px">Scholarship</p>
-                    <input type="text" name="scholarship"  value="" style="width: 198px;" placeholder='$'>
-                </div>
-                <!-- <div class="four columns">
-                    
-                    <p style="margin-bottom:0px">Complete</p>
-                    <input type="date" name="complete" id="interviewdate" value="" style="width: 198px;">
-                    
-                </div> -->
-                <div class="four columns" style="  margin-bottom: 18px;
-">
-                    
-                    <p style="margin-bottom:0px">Date Decision Received</p>
-                    <input type="date" name="descion" id="descion" value="" style="width: 198px;">
-                    
-                </div>
-            </div>
-            <div class="clear"></div>
-        </div>
-        </div>
-        <hr>
-        <div class="gdlr-lms-content" style="margin-left: -666px;">
-        <div class="twelve columns" style="text-align:center;align:left margin-top: 9px;">
-            <input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Add Application" />
+                    </span> </p>
+                    <p class="gdlr-lms-half-left">
+            <label >Date Applied</label>
+            <span class="gdlr-lms-combobox" >
+                       <input type="date" name="received" id="received"  placeholder="MM/DD/YYYY" style="  background-color: white;" >                  
+                    </span> </p>
+                   <p class="gdlr-lms-half-left">                                                 
+            <label>Scholarship</label>
+            <input type="text" name="scholarship"  value="" placeholder='$' ></p>
+            <p class="gdlr-lms-half-left">
+            <label >Date Decision Received</label>
+            <span class="gdlr-lms-combobox" >
+                       <input type="date" name="descion" id="descion"  placeholder="MM/DD/YYYY" style="  background-color: white;">                  
+                    </span> </p>
+                     <div style="width:100%;  text-align: center;">
+                          <input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Add Application" />
              &nbsp
             <button class="gdlr-button medium" style="color:#ffffff; background-color:#d6724f;margin-top:0px;"><a href="<%=profile_index_path %>" style='color:inherit'>Cancel</a></button>
-        </div>
-        </div>
-        
-        
-        <div class="clear"></div>
-    <% end %>
-    
-    
-    <div class="clear"></div>
-</div>
-</div>
-<div class="clear"></div>
-<div class="clear"></div>
 
+                     </div>
+
+
+                    <%end %>
+                    <div class="clear"></div>
 </div>
+<div class="profile_blog_rgt" style="border:none">
+                <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                <%=image_tag '3.jpg' %>
+                </div>
+</div>
+</div>
+
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
  <script type="text/javascript">
 $(document).ready(function(){

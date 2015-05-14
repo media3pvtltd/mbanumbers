@@ -1,46 +1,29 @@
-
-
+ 
 <div class="gdlr-item gdlr-divider-item"></div>
-
-<style>
-
-
-#th {
-    background-color: #3E6AA7;
-    color:white;
-   font-family: Verdana,Arial,Helvetica,sans-serif;
-   font-weight: normal;padding: 9px;text-transform: uppercase;
-   font-size: 14px; text-align: center;
-
-    
-}
-.style-1 tr td{
-
-	font-family: arial;
-	font-size: 50;
-	
-}
-</style>
-
-
-
-
-<div >
-
-<div class="gdlr-item gdlr-tab-item horizontal">
+<div class="gdlr-lms-container gdlr-lms-container">
+        <div class="gdlr-lms-item">
+ <div  class= "ten column" id='profind'>
+<div style="margin-top:18px">
+<div class="gdlr-item gdlr-tab-item horizontal" id="table">
 <div class="tab-title-wrapper">
-<a href="<%=schools_path %>"><h4 class="tab-title ">
-<span> MBA School List</span></h4></a>
-<a href="<%=schools_ranking_path %>"><h4 class="tab-title"><span>By Ranking</span></h4></a>
+    <a href="<%=schools_path %>">
+        <h4 class="tab-title ">
+        <span>MBA Schools list</span></h4>
+    </a>
+    <a href="<%=schools_ranking_path %>"><h4 class="tab-title"><span>By Ranking</span></h4></a>
+    <!-- <a href="<%=schools_name_path %>"><h4 class="tab-title"><span>By Name</span></h4></a> -->
+    <a href="<%=schools_state_path %>"><h4 class="tab-title active"><span>By State</span></h4></a>
+    <div class="gdlr-lms-content">
 
-<a href="<%=schools_state_path %>"><h4 class="tab-title active"><span>By State</span></h4></a>
-<div class="gdlr-lms-content">
-	<div class="twelve columns">
-		<div style="margin-left:1px;margin-right:1px">
-			<div class="eleven columns">
-				<div class="gdlr-item-title-wrapper gdlr-item pos-left borderme" style="margin-left: 1px;">
-						<div class="gdlr-space" style="margin-top: 40px;"></div>
-						<table class="style-2">
+        
+<div>
+    <!-- #Temproray -->
+     
+</div>
+    <!-- <div class="well"  > -->
+        <div>
+         
+            <table class="style-2">
 						<tbody style="text-align:left">
 						<tr>
 							<!-- <th id="th"> Icon</th> -->
@@ -68,14 +51,20 @@
 							<%end %>
 						</tbody>
 						</table>
-				</div>
-				<%= will_paginate @states, :class => 'gdlr-pagination'%>
-			</div>
-			<div class="one columns"></div>
-		</div>
-	</div>
-	<div class="clear"></div>
+        </div>
+        <div class="gdlr-item gdlr-divider-item"></div>
+        <%= will_paginate @states, :class => 'gdlr-pagination'%>
+    <!-- </div> -->
+    <div class="clear"></div>
+</div>
+<div class="clear"></div>
 </div>
 </div>
+</div>
+</div>
+<div class="profile_blog_rgt" style="border:none">
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div>
 </div>
 </div>
