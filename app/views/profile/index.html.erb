@@ -211,8 +211,8 @@ a{
               <%#binding.pry %>
                <div class="gdlr-lms-instructor-title-wrapper">
     <%=form_tag profile_viewusers_path, :method => 'get' do |f|  %>
-     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;margin-top: -15px;  height: 20px;',:placeholder => 'Enter member name', :id => 'tags'  %>
-     <%= submit_tag 'Search',:style => 'padding: 10px;color:white; background-color:#F7BD4F;' %>
+     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;',:placeholder => 'Enter member name', :id => 'tags'  %>
+     <%= submit_tag 'Search',:style => '  padding: 2%;color:white; background-color:#F7BD4F;  margin-top: 4%;' %>
 <% end -%>
               </div>
               
@@ -422,7 +422,7 @@ a{
                         <%= will_paginate @comments, :class => 'gdlr-pagination'%>
                         <!-- .commentlist -->
                     <div id="respond" class="comment-respond">
-                        <h3 id="reply-title" class="comment-reply-title">Leave a Reply</h3>
+                        <h3 id="reply-title" class="comment-reply-title">Leave a Comment</h3>
 
                         <%=form_tag comment_new_path do %>
                         <%= hidden_field_tag 'username', current_user.username %>
@@ -445,9 +445,11 @@ a{
   </div><!-- gdlr-lms-content -->
 </div>
 </div>
+
     <div class="clear"></div>
   </div>
    <div class="clear"></div>
+   <div class="gdlr-item gdlr-divider-item"></div>
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">

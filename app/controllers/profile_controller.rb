@@ -81,7 +81,7 @@ before_action :check_session, :only => [:login, :create]
 
     if @comment.save
       flash[:success] = 'Comment added'
-      redirect_to profile_index_path(params[:username])
+      redirect_to static_profile_path(params[:username])
     else
       flash[:error]="Something went wrong"
       redirect_to static_profile_path(params[:username])
@@ -125,6 +125,8 @@ before_action :check_session, :only => [:login, :create]
     end
   end
 
+
+
   
   def login
   	@title = 'Sign in'
@@ -136,7 +138,7 @@ before_action :check_session, :only => [:login, :create]
     if status
       session[:user_id] = status
       flash[:success] = 'Welcome to MBA Numbers'
-      redirect_to profile_index_path
+      redirect_to session[:previous_url] || root_path 
     else
       flash[:notice] = "Please check your credentials"
       redirect_to profile_login_path
@@ -185,6 +187,18 @@ before_action :check_session, :only => [:login, :create]
     redirect_to :action => 'mailbox'
 
   end
+
+    def comndestroy
+
+      
+    @app_data = Comment.find(params[:id])
+    
+   
+    @app_data.destroy
+    redirect_to profile_index_path
+  end
+
+
 
   def edit
     @user=Member.new()

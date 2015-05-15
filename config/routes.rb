@@ -98,7 +98,7 @@
   get 'profile/like/:cuserid/:buserid' => 'profile#like', :as => 'profile_like'
   get 'profile/dislike/:cuserid/:buserid' => 'profile#dislike', :as => 'profile_dislike'
   get  'profile/commitschool/:cuurentuserid/:schoolname' => 'profile#commitschool', :as => 'profile_commitschool'
-  
+  get 'profile/comndestroy/:id' => 'profile#comndestroy', :as => 'profile_comndestroy'
   # resources :schools
 
   get 'member/:username' => 'profile#staticprofile', :as => 'static_profile'
