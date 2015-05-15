@@ -22,6 +22,27 @@
                             </select>
             
                         </span></p>
+                        <p class="gdlr-lms-half-left">
+            <label><span>Interview Date*</span></label>
+             
+            <input type="radio" name="interview" id="intqyes" value="yes">&nbspYes
+        <input type="radio" name="interview" id="intqno" style="margin-left:10px;" value="no">&nbspNo
+                        
+        
+                        
+            </p>
+                        
+                        <p class="gdlr-lms-half-left" style="display:none;" id="intdate" style="  width: 100%;">
+            
+            <label >Interview Date</label>
+            
+            
+            <span class="gdlr-lms-combobox" >
+            
+                        <input type="date" name="interviewdate" id="interviewdate" value="" >
+                                  
+    
+                        </span></p>
 
                         
 
@@ -51,25 +72,7 @@
                         
                             </select>
                         </span></p>
-                        <p class="gdlr-lms-half-left">
-            <label >Interview Date*</label>
-            
-            <input type="radio" name="interview" id="intqyes" value="yes">&nbspYes
-        <input type="radio" name="interview" id="intqno" style="margin-left:10px;" value="no">&nbspNo
-            
-                        </p>
-                        <p class="gdlr-lms-half-left" style="display:none;" id="intdate" style="  width: 100%;">
-            
-            <label >Interview Date</label>
-            
-            
-            <span class="gdlr-lms-combobox" >
-            
-                        <input type="date" name="interviewdate" id="interviewdate" value="" >
-                                  
-    
-                        </span></p>
-
+                        
                         
 
                         <p class="gdlr-lms-half-left">
@@ -79,6 +82,7 @@
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
+                                <option value="N/A">N/A</option>
                         
                             </select>                   
                     </span> </p>
@@ -89,11 +93,11 @@
                     </span> </p>
                    <p class="gdlr-lms-half-left">                                                 
             <label>Scholarship</label>
-            <input type="text" name="scholarship"  value="" placeholder='$' ></p>
+            <input type="text" name="scholarship"  value=""  style="width:87%">&nbsp<span><i class="gdlr-icon icon-dollar" style="color: #333333; font-size: 20px; "></i></span></p>
             <p class="gdlr-lms-half-left">
             <label >Date Decision Received</label>
             <span class="gdlr-lms-combobox" >
-                       <input type="date" name="descion" id="descion"  placeholder="MM/DD/YYYY" style="  background-color: white;">                  
+                       <input type="date" name="descion" id="descion"  placeholder="MM/DD/YYYY" style="  background-color: white;" >                  
                     </span> </p>
                      <div style="width:100%;  text-align: center;">
                           <input type="submit" class="gdlr-button medium" style="color:#ffffff; background-color:#4f8ed6; " value="Add Application" />

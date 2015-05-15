@@ -310,7 +310,7 @@ table.gdlr-lms-table.gdlr-lms-leaderboard-table td img { vertical-align: middle;
 .gdlr-lms-form input[type="text"], .gdlr-lms-form input[type="email"], 
 .gdlr-lms-form input[type="password"], .gdlr-lms-form textarea, .gdlr-lms-form textarea:focus{ 
 	border-width: 1px; border-style: solid; padding: 12px 3%; width: 94%; font-size: 13px;
-	border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; margin: 0px; }
+	border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; margin: 0px;font-family: calibric;}
 .gdlr-lms-form input[type="date"]{ 
 	border-width: 1px; border-style: solid; padding: 10px 3%; width: 94%; font-size: 13px;
 	border-radius: 0px; -moz-border-radius: 0px; -webkit-border-radius: 0px; margin: 0px; }
