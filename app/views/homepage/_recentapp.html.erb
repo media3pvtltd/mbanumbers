@@ -20,7 +20,7 @@
 						%> 
 <div class="gdlr-lms-course-content">
 <h3 class="gdlr-lms-course-title">
-<a href="#"><%=@user.username %><br>(<%=@user.gpa %>/<%=@user.gmat_score %>)</p> <%=user.status %>  at <%= user.school %> </a>
+<a href="#"><%=@user.username %><br>GPA: <%= number_with_precision(@user.gpa, precision: 2)  %><br>GMAT: <%=@user.gmat_score %></p> <%=user.status %>  at <%= user.school %> </a>
 </h3>
 <div class="gdlr-lms-course-price">
 <% if user.status == "Waitlisted" %>
