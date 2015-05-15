@@ -336,15 +336,14 @@ a{
                                         <%= sname[0] %> - <%= sname[1] %>
                             <br>
                             <div style="  text-align: right;">
-                              <a href="<%=schools_edit_path(ad.id)%>">
-                            <i class="gdlr-icon icon-edit" style="color: blue; font-size: 14px; "></i></a>
-                            <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: red; font-size: 14px; "></i></a><br></div>
-                              <div style="text-align:center"> 
                             <% if ad.status=="Accepted"%>
                            
           <input type="hidden" id = "commitsname<%= k %>" value="<%= ad.school %>">
-            <a href="javascript:void(0)" id="commit<%= k %>" style="green">Commit</a>
-                            </div>
+            <a href="javascript:void(0)" id="commit<%= k %>" style="green" style="  padding: 5px;">Commit</a>
+                              <a href="<%=schools_edit_path(ad.id)%>">
+                            <i class="gdlr-icon icon-edit" style="color: blue; font-size: 14px; "></i></a>
+                            <a href="<%=schools_destroy_path(ad.id)%>"><i class="gdlr-icon icon-remove" style="color: red; font-size: 14px; "></i></a><br></div>
+                              
                             </div>
         <%end %>
                 </td>
