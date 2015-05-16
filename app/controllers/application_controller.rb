@@ -12,10 +12,12 @@ class ApplicationController < ActionController::Base
   		redirect_to root_url unless current_user.nil?
   	end
     def authenticate_user
+      
      if params[:controller] == "myadvices" && params[:action] == "create"
         session[:url]=request.referrer
      end
-     if params[:controller] == "forums" && params[:action] == "topic_new"
+     if params[:controller] == "forums" && params[:action] == "topics"
+        
         session[:furl]=request.referrer      
      end
       # binding.pry

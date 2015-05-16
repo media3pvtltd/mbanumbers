@@ -144,6 +144,7 @@ before_action :check_session, :only => [:login, :create]
         
         redirect_to session[:url]
       elsif !session[:furl].nil?
+
         redirect_to session[:furl]
       else
         redirect_to profile_index_path
