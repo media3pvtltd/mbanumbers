@@ -12,7 +12,17 @@ class ApplicationController < ActionController::Base
   		redirect_to root_url unless current_user.nil?
   	end
     def authenticate_user
+     if params[:controller] == "myadvices" && params[:action] == "create"
+        session[:url]=request.referrer
+     end
+     if params[:controller] == "forums" && params[:action] == "topic_new"
+        session[:furl]=request.referrer      
+     end
+      # binding.pry
       redirect_to profile_login_path, notice: 'User needs to be authenticated' unless session[:user_id]
+      
+        
+
     end
     def check_session
       redirect_to profile_index_path, :notice => 'user already logged in' unless session[:user_id].nil?
@@ -23,21 +33,5 @@ class ApplicationController < ActionController::Base
     end
     after_filter :store_location
 
-def store_location
-  # store last url - this is needed for post-login redirect to whatever the user last visited.
-  return unless request.get? 
-  if (request.path != "/users/login" &&
-      request.path != "/users/sign_up" &&
-      request.path != "/users/password/new" &&
-      request.path != "/users/password/edit" &&
-      request.path != "/users/confirmation" &&
-      request.path != "/users/sign_out" &&
-      !request.xhr?) # don't store ajax calls
-    session[:previous_url] = request.fullpath 
-  end
-end
 
-def after_sign_in_path_for(resource)
-  session[:previous_url] || root_path
-end
 end

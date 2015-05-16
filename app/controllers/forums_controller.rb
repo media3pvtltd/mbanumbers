@@ -11,7 +11,7 @@ layout 'homepage'
     @title = "Forum"
   end
   def topics
-   @title = "Forum"
+    @title = "Forum"
     @q = Refforum.ransack(params[:q])
     @forum_data = @q.result(distinct: true)
     @forum_data = Refforum.find(params[:id])
@@ -19,10 +19,9 @@ layout 'homepage'
     
     @topics = Refforum.find(params[:id]).topics
     
-  
   end
   def topic_new
-     @title = "Forum"
+    @title = "Forum"
     @topic = Topic.new(params.permit(:refforum_id, :name))
     @topic.member_id = session[:user_id]
     if @topic.save

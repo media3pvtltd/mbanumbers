@@ -4,7 +4,7 @@ class Member < ActiveRecord::Base
 	validates :username, uniqueness: true
 	validates :username, length: {maximum: 30, minimum: 6 }
 	validates :email, presence: true
-                     
+    validates :undergraduate_school, presence: true               
 	validates :email, uniqueness: true
 	validates :email, format: /@/
 	validates :friend, format: /@/,presence: { message: "email is written in wrong format" }
@@ -13,6 +13,7 @@ class Member < ActiveRecord::Base
 	validates_numericality_of :gpa , :less_than_or_equal_to=>4.00, :greater_than_or_equal_to=>1.00
     validates :gmat_score, presence: true
 	validates_numericality_of :gmat_score , :less_than_or_equal_to=>800, :greater_than_or_equal_to=>200
+
 	# validates :password, :presence =>true,
  #                    :length => { :minimum => 5, :maximum => 40 },
  #                    :confirmation =>true

@@ -135,10 +135,19 @@ before_action :check_session, :only => [:login, :create]
   
   def create
     status = Member.authenticate(params[:email], params[:password])
+    
     if status
       session[:user_id] = status
       flash[:success] = 'Welcome to MBA Numbers'
-      redirect_to session[:previous_url] || root_path 
+      
+      if !session[:url].nil?
+        
+        redirect_to session[:url]
+      elsif !session[:furl].nil?
+        redirect_to session[:furl]
+      else
+        redirect_to profile_index_path
+      end
     else
       flash[:notice] = "Please check your credentials"
       redirect_to profile_login_path

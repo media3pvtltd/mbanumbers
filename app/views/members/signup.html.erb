@@ -79,16 +79,26 @@ end
             
                         </span></p>
             </div>
-            <p class="gdlr-lms-half-left">
             <div style="display:none;" id="schoold">
-            <label style="width: 172px;margin-top: 17px;">Undergraduate School*</label>
+            <p class="gdlr-lms-half-left">
+            
+            <label style="">Undergraduate School*</label>
             
            
         <%= text_field_tag 'school' , "",placeholder: 'Undergraduate School' %>
            
-            
-            </div>
             </p>
+            <p class="gdlr-lms-half-left">
+            <label >Graduating class*</label> 
+
+            
+            <span class='gdlr-lms-combobox' style="width: 150px;">
+            <%= select_year(Date.today, start_year: 1990, end_year: 2018) %>
+                
+            </span>
+            </p>
+            </div>
+            
             
             <p class="gdlr-lms-half-left">
             <label>GPA</label>
@@ -180,14 +190,12 @@ $("#state").change(function(){
               url: "<%=root_url %>colleges/index/"+stateid,
               context: document.body
             }).done(function(r) {
-
                    // alert(r);
                 document.getElementById('undergraduate_school').innerHTML=r;
                 
         });
     
 });
-
 $('#question').click(function(){
     var a=$("#question").val();
         $('#stated').css('display','block');
@@ -202,9 +210,7 @@ $('#question1').click(function(){
     $('#stated').css('display','none');
     
 });
-
 $("#undergraduate_school").change(function(){
-
     var a=$("#undergraduate_school").val();
      if(a == "OTHER (MY SCHOOL IS NOT LISTED)")
      {
@@ -214,10 +220,5 @@ $("#undergraduate_school").change(function(){
      {
         $('#schoold').css('display','none');
      }
-
-
 });
-
-
-
 </script>

@@ -8,6 +8,9 @@
 		</div>	
 </div>
 	 -->
+<%
+	session[:url]=nil
+%>
 	 <div class="gdlr-item gdlr-divider-item"></div>
 <div class="gdlr-lms-container gdlr-lms-container">
         <div class="gdlr-lms-item">
@@ -152,6 +155,9 @@ color: #a4a4a4;" >Back</a>
 						
 								<%=form_tag myadvices_create_path, :class => 'gdlr-lms-form' do %>
 								<%= hidden_field_tag 'id', params[:id] %>
+								<%= hidden_field_tag 'controller', params[:controller] %>
+								<%= hidden_field_tag 'action', params[:action] %>
+								
 							<li>
 								<label for="first_name">Title</label>
 								<%=text_field_tag "title" %>
