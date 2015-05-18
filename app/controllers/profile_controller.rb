@@ -256,21 +256,29 @@ before_action :check_session, :only => [:login, :create]
   
   def changepwdcreate
     if current_user.password == params['oldpassword']
-      if params[:newpassword]== params[:conformpassword]
+      if params[:newpassword] != "" && params[:conformpassword] != ""
+        if params[:newpassword]== params[:conformpassword]
           # membertab=current_user.password=params[:newpassword]
-          member=Member.find(session[:user_id])
-          member.password=params[:newpassword]
-          if member.save
-            flash[:success]= "Your Password Changed Sucessfully"
-            redirect_to profile_index_path
-          end
-      else
+             member=Member.find(session[:user_id])
+              member.password=params[:newpassword]
+              if member.save
+                  flash[:success]= "Your Password Changed Sucessfully"
+                  redirect_to profile_index_path
+              end
+        else
         flash[:error]="New Password And ConformPassword Doesnot Match"
+        redirect_to request.referer
+        end
+         else
+        flash[:error]="Something went wrong"
+      redirect_to request.referer
       end
-    else
+      else
       flash[:error]="Oldpassword wrong please enter correct"
       redirect_to profile_chnagepwd_path
-    end
+      end
+     
+    
   end
 
   def forgotpassword
@@ -294,6 +302,7 @@ before_action :check_session, :only => [:login, :create]
   end
 
   def createupdatepwd
+  if params[:newpassword] != "" && params[:conformpassword] != ""
     if params[:newpassword] == params[:conformpassword]
       # membertab=current_user.password=params[:newpassword]
       member=Member.find_by_token(params[:token])
@@ -303,8 +312,13 @@ before_action :check_session, :only => [:login, :create]
         redirect_to profile_login_path
       end
     else
-      flash[:error]="New Password And ConformPassword Doesnot Match"
+      flash[:error]="New Password And ConfirmPassword Doesnot Match"
+      redirect_to request.referer
     end
+  else
+    flash[:error]="Something went wrong"
+      redirect_to request.referer
+  end
   end
 
   
