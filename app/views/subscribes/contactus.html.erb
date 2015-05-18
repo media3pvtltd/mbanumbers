@@ -1,62 +1,53 @@
+<% 
+def addthree(max)
+    # Return a sequence incremented by three up to the max.
+    i = 200
+    while i <= max
+    yield i
+    i += 10
+    end
+end
+%>
 <div class="gdlr-item gdlr-divider-item"></div>
-
-<div class="gdlr-lms-container gdlr-lms-container">
+<!-- <div class="profile_blog_lft">
+                <%#= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
+                </div> -->
+                    <div class="gdlr-lms-container gdlr-lms-container">
                     <div class="gdlr-lms-item">
+                       
+                <div class="ten column">
+                    <%=form_tag subscribes_submitcontact_path, :class =>'gdlr-item gdlr-content-item gdlr-lms-form' do |f| %>
+      
+        <p class="gdlr-lms-half-left">
+             <label>Your Name (required)</label>
+             
+           <%= text_field_tag 'name' , "",class: 'form-control' ,placeholder: 'Name', 
+        :required => 'true' %></p>
+            <p class="gdlr-lms-half-left">
+             <label>Your Email (required)</label>
+             
+           <%= text_field_tag 'email' , "",class: 'form-control' ,placeholder: 'Email' %></p>
 
+           <p class="gdlr-lms-half-left">
+             <label>Subject</label>
+             
+          <%= text_field_tag 'subject' , "",class: 'form-control' ,placeholder: 'Subject', :required => 'true' %></p>
 
-<div class="row">
-
-
-<div class="profile_blog_lft" style="border:none">
+          
+           <p class="gdlr-lms-half-left">
+             <label>Your Message</label>
+             
+          <%= text_area_tag 'message' , "",class: 'form-control' ,placeholder: 'Message' %></p>
+          <div style="width:100%;  text-align: center;">
+<%= submit_tag 'Submit',class: 'wpcf7-form-control wpcf7-submit',name: 'send',style:'font-size:15px;margin-top: 13px;'%>
+    
+</div>
+<%end %>
+</div>
+    <div class="profile_blog_lft" style="border:none">
                 <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
                 </div>
-                <div class="one column"></div>
-<div class="row">
-
-	<div class="eight columns">
-
-<div class="section-container container">
-	<div class="gdlr-item gdlr-content-item"><p>
-	</p><div class="clear"></div>
-	<div class="gdlr-space" ></div>
-	<div class="clear"></div>
-	<div class="gdlr-space" ></div>
-	<div class="wpcf7" id="wpcf7-f8-o1" lang="en-US" dir="ltr">
-	<div class="screen-reader-response"></div>
-	
-	<%=form_tag subscribes_submitcontact_path, :class =>'gdlr-item gdlr-content-item gdlr-lms-form' do |f| %>
-		<p>Your Name (required)<br>
-		<span class="wpcf7-form-control-wrap your-name">
-		<%= text_field_tag 'name' , "",class: 'form-control' ,placeholder: 'Name', 
-		:required => 'true' %>
-		</span> </p>
-		
-		<p>Your Email (required)<br>
-		<span class="wpcf7-form-control-wrap your-email">
-		<%= text_field_tag 'email' , "",class: 'form-control' ,placeholder: 'Email' %></span>
-		
-		 </p>
-		<p>Subject<br>
-		<span class="wpcf7-form-control-wrap your-subject">
-			<%= text_field_tag 'subject' , "",class: 'form-control' ,placeholder: 'Subject', :required => 'true' %>
-		</span> </p>
-		<p>Your Message<br>
-		<span class="wpcf7-form-control-wrap your-message">
-		<%= text_area_tag 'message' , "",class: 'form-control' ,placeholder: 'Message' %></span> </p>
-		<p></p>
-		<div class="wpcf7-response-output wpcf7-display-none"></div>
-		<%= submit_tag 'Send',class: 'wpcf7-form-control wpcf7-submit',name: 'send' %>
-		
-		</div>
-	<%end%>
-	</div></div>
-	
-	</div>
-</div>
- <div class="profile_blog_rgt">
-                <%= ad_unit(:skyscraper, "pub-6430317842295107", {:slot => "5305317726"}) %>
-                </div> 
-                <div class="clear"></div>
-</div>
-</div>
-</div>
+          
+              <div class="clear"></div>    
+              </div>
+              </div>

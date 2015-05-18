@@ -299,6 +299,7 @@ before_action :check_session, :only => [:login, :create]
   end
 
   def updatepassword
+    @title="Update your password"
   end
 
   def createupdatepwd
