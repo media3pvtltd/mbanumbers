@@ -24,7 +24,7 @@ layout 'homepage'
     end
 
     def submitcontact
-
+    	
     		@user = Contact.new(req_params)
     			if @user.save
     		UserMailer.support_email(params).deliver!
