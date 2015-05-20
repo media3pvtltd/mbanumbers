@@ -29,7 +29,7 @@
             <dt title="No unread posts">
             <!-- <a class="feed-icon-forum" title="Feed - Your first forum" href="http://phpbb3.pixelgoose.com/feed.php?f=2"><i class="fa fa-rss-square fa-lg"></i></a> -->
               <a href="<%= forum_topic_path(f.id) %>" class="forumtitle"><%= f.name %></a><br>
-              <div class="forum-description"><%= raw f.description %>
+              <div class="forum-description" style="  font-size: 14px;"><%= raw f.description %>
                   <button class="gdlr-button medium" style="color:white; background-color:#26BCB0;margin-top:10px;padding: 8px; ">
                   
                <a href="<%=forum_topic_path(f.id) %>" style='color:inherit'>View</a>
