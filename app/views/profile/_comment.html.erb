@@ -27,7 +27,9 @@
 				<section class="comment-content">
 					<h5><%=mydata.title %></h5>
 					<p><%=mydata.comment %></p>
+					<% if current_user.id == mydata.user_id || params[:action] == "index"  %>
 					<a href="<%=profile_comndestroy_path(mydata.id)%>" style="color:#d6724f"><i class="gdlr-icon icon-remove" ></i>Delete</a>
+				<% end %>
 				</section>
 				<!-- comment-content -->
 			</div><!-- comment-body -->
