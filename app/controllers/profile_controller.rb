@@ -5,7 +5,7 @@ before_action :check_session, :only => [:login, :create]
 
 
   def index
-    @title = 'Profile'
+    @title = 'My Profile'
     @stuff = Stuff.find_by_member_id(session[:user_id]) || Stuff.new
     @app_data = Application.where('user_id=?',session[:user_id]).order('school ASC')
     @q = Member.ransack(params[:q])
@@ -47,7 +47,7 @@ before_action :check_session, :only => [:login, :create]
     @all_mebers=Member.all
   end
   def staticprofile
-    @title = 'Static Profile'
+    @title = "Welcome to #{params[:username] }'s profile" 
 
     # @a=params[:q]
     

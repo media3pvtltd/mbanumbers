@@ -422,7 +422,7 @@ a{
                         <%= will_paginate @comments, :class => 'gdlr-pagination'%>
                         <!-- .commentlist -->
                     <div id="respond" class="comment-respond">
-                        <h3 id="reply-title" class="comment-reply-title">Leave a Comment</h3>
+                        <h3 id="reply-title" class="comment-reply-title">Your Message</h3>
 
                         <%=form_tag comment_new_path do %>
                         <%= hidden_field_tag 'username', current_user.username %>

@@ -28,9 +28,9 @@
             <% end %>
                 <a href="javascript:void(0)" id="dislike" style="display:none;float:left"><%= image_tag 'congo.png', :style => 'margin-top: -1px;' %></a>
             <label id="content2" style="margin-left: 10px;   margin-top: 11px;
-"> Congratulate to Mr/Mrs.<%= @user.username .capitalize %></label>
+"> Congratulate <%= @user.username .capitalize %></label>
             <label id="content1" style="display:none;   margin-top: 11px;
-"> You sucessfully congratulate the <%= @user.username %></label>
+"> You sucessfully congratulated  <%= @user.username %></label>
                
             
 <% end %>
@@ -221,7 +221,7 @@
                         <%= will_paginate @comments, :class => 'gdlr-pagination'%>
                         <!-- .commentlist -->
                     <div id="respond" class="comment-respond">
-                        <h3 id="reply-title" class="comment-reply-title">Leave a Comment</h3>
+                        <h3 id="reply-title" class="comment-reply-title">Your Message</h3>
 
                         <%=form_tag comment_new_path do %>
                         <%= hidden_field_tag 'username', params[:username] %>
