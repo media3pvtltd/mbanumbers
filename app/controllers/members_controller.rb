@@ -40,7 +40,11 @@ before_action :pass_check, only: :create
       flash[:success] = 'Your Account Has Been Created Successfully! Login To Your Email To Activate Your Account!!'
       redirect_to root_url
     else
-      redirect_to members_signup_path, :flash => {:model_errors => @user.errors.messages}
+      @state = Ustate.all
+
+      flash[:model_errors ]  = @user.errors.messages
+
+      render "signup"
     end
   end
   def verifiemail

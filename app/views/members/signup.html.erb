@@ -21,20 +21,20 @@ end
         <p class="gdlr-lms-half-left">
              <label>Full Name*</label>
              
-            <%= text_field_tag 'member[name]' ,'',:autofocus => true ,placeholder: 'Name' %></p>
+            <%= text_field_tag 'member[name]' ,@user.name,:autofocus => true ,placeholder: 'Name' %></p>
               <div class="clear"></div>    
               <p class="gdlr-lms-half-left">                                                 
             <label>User Name*(Username should be contain 6 characters)</label>
-            <%= text_field_tag 'member[username]' , "",placeholder: 'User Name' %></p>
+            <%= text_field_tag 'member[username]' , @user.username,placeholder: 'User Name' %></p>
             <p class="gdlr-lms-half-left">
             <label>Email Address*</label>
-           <%= text_field_tag 'member[email]' , "",placeholder: 'Email' %></p>
+           <%= text_field_tag 'member[email]' , @user.email,placeholder: 'Email' %></p>
            <p class="gdlr-lms-half-left">
             <label>Zipcode*</label>
-            <%= text_field_tag 'member[zipcode]' , "",placeholder: 'Zipcode' %></p>
+            <%= text_field_tag 'member[zipcode]' , @user.zipcode,placeholder: 'Zipcode' %></p>
             <p class="gdlr-lms-half-left">
             <label>Hometown</label>
-            <%= text_field_tag 'member[hometown]' , "",placeholder: 'Hometown' %></p>
+            <%= text_field_tag 'member[hometown]' , @user.hometown,placeholder: 'Hometown' %></p>
             <p class="gdlr-lms-half-left">
             <label><span>Did you Graduate College in the USA? *</span></label>
             
@@ -85,7 +85,7 @@ end
             <label style="">Undergraduate School*</label>
             
            
-        <%= text_field_tag 'school' , "",placeholder: 'Undergraduate School' %>
+        <%= text_field_tag 'school' ,'',placeholder: 'Undergraduate School' %>
            
             </p>
             <p class="gdlr-lms-half-left">
@@ -102,11 +102,11 @@ end
             
             <p class="gdlr-lms-half-left">
             <label>GPA</label>
-                <%= text_field_tag 'member[gpa]' , "",placeholder: 'GPA' %></p>
+                <%= text_field_tag 'member[gpa]' ,@user.gpa,placeholder: 'GPA' %></p>
                  <p class="gdlr-lms-half-left">
 
             <label>Work Experience and Other Information</label>
-            <%= text_field_tag 'member[exp]' , "",placeholder: 'Work Experience' %>
+            <%= text_field_tag 'member[exp]' , @user.exp,placeholder: 'Work Experience' %>
             </p>
                  <p class="gdlr-lms-half-left">
             <label>GMAT Score</label>
@@ -135,7 +135,7 @@ end
             </p>
             <p class="gdlr-lms-half-left">
            <label>Refer a Friend</label>
-            <%= text_field_tag 'member[friend]' , "",placeholder: "Enter Friend's Email" %></p>
+            <%= text_field_tag 'member[friend]' , @user.friend,placeholder: "Enter Friend's Email" %></p>
             <p class="gdlr-lms-half-left">
             <label>Photo</label>
             
@@ -153,8 +153,9 @@ end
 
         </div>
     <%end%> 
-    <div class="row" style="text-align:center" >
-            <h5 style="color:#bfbfbf;text-align:center">Or Login with an existing account:</h5>
+    <div class="row" style="text-align:center;  margin-top: 30px;
+" >
+            <h5 style="color:#bfbfbf;text-align:center; ">Or Login with an existing account:</h5>
             
     
     <a class="gdlr-button" href="/auth/facebook" target="_self" style="color:#ffffff; background-color:#3b5998;"><i class="gdlr-icon icon-facebook"></i> Login with Facebook</a>                                                        
