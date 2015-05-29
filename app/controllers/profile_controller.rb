@@ -143,7 +143,8 @@ end
   def remove
     @buserdel=Bookmark.destroy_all(bookmarkuserid: params[:id])
     if @buserdel
-      redirect_to static_profile_path(Member.find(params[:id]).username)
+      redirect_to request.referrer
+      #redirect_to static_profile_path(Member.find(params[:id]).username)
     end
   end
 

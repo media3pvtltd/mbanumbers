@@ -224,7 +224,9 @@ a{
     
                   <% @user_name= Member.find(key.bookmarkuserid) %>
 
-              <h6 style="margin-bottom:0px" > <a href="<%= static_profile_path(@user_name.username) %>"><%= @user_name.username %></a>  </h6>
+              <h6 style="margin-bottom:0px" > <a href="<%= static_profile_path(@user_name.username) %>"><%= @user_name.username %></a>  </h6> <a href="<%= user_remove_path(@user_name.id) %>" 
+                    style="float: left;margin-top: -23px;color:#d55949" id="budel">
+                    <i class="icon-remove" style="color:#d55949; font-size: 14px;margin-left: 200px; "></i> Remove</a>
               <div class="gdlr-lms-instructor-position">(GPA: <%= number_with_precision(@user_name.gpa, precision: 2)  %>, &nbsp
                  GMAT: <%= @user_name.gmat_score%> )</div><br> <hr>
                  <%else %>
@@ -429,7 +431,7 @@ a{
                             <p>Title*<br>
     <span class="wpcf7-form-control-wrap your-subject"><%= text_field_tag 'title' , "",class: 'wpcf7-form-control wpcf7-text' ,placeholder: 'Title',:style=> "width: 46%;border: 1px solid;border-radius: 6px;"  %></span> </p>
                             <p>Your Message<br>
-    <span class="wpcf7-form-control-wrap your-message"><%= text_area_tag 'comment' , "",class: 'wpcf7-form-control wpcf7-textarea', placeholder: 'Comment', cols: '40', rows: '10', :style=> "width: 78%;border: 1px solid;border-radius: 6px;" %></span> </p>
+    <span class="wpcf7-form-control-wrap your-message"><%= text_area_tag 'comment' , "",class: 'wpcf7-form-control wpcf7-textarea', placeholder: 'Message', cols: '40', rows: '10', :style=> "width: 78%;border: 1px solid;border-radius: 6px;" %></span> </p>
                   <%= submit_tag 'Post',class: 'button1' %>
                         <%end %>
                     </div><!-- #respond -->
