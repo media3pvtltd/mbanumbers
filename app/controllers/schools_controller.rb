@@ -12,7 +12,7 @@ class SchoolsController < ApplicationController
 
   def profile
   	@title="Add Application"
-    @school_name=School.order('business_school ASC')
+    @school_name=School.order('university ASC')
     @app_data=Application.order('school DSC')
     
   	
@@ -35,7 +35,7 @@ class SchoolsController < ApplicationController
   def edit
    @title="Edit Application"
     @app_data = Application.find(params[:id])
-    @school_name = School.order('business_school ASC')
+    @school_name = School.order('university ASC')
   end
   def schoolappinfo
     @school=Application.find_by_school(params[:schoolname])

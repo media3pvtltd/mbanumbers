@@ -14,8 +14,8 @@
            <select  name="school" id="school" style="width:100% ">
                             <option value="" >-----------Select School----------</option>
                             <% @school_name.each do |sn| %>
-                                 <option value="<%= sn.business_school    %> - <%= sn.university%> -<%= sn.id %>">
-                                     <%= sn.business_school  %> -  <%= sn.university %> 
+                                 <option value="<%= sn.university%>-<%= sn.business_school%>-<%= sn.id %>">
+                                       <%= sn.university %>-<%= sn.business_school  %> 
                                  </option>
                             <% end %>
                                   

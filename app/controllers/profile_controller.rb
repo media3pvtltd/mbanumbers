@@ -88,9 +88,31 @@ before_action :check_session, :only => [:login, :create]
     end
   end
   def viewUsers
+    @title= 'Search By Name'
     @users=Member.where("username LIKE ? ", "%#{params[:username]}%")  
  end
 
+ def searchuser
+    @title= 'Search By Name'
+    @users=Member.where("username LIKE ? ", "%#{params[:username]}%")  
+    # redirect_to profile_name_path
+    render 'name'
+    
+ end
+def schoolapplied
+@title = "Search by schools Applied"
+    @updates = Application.all
+    @all_mebers=Member.order('created_at DESC').paginate(:page => params[:page], :per_page => 20)
+
+  
+end
+
+def searchschool
+  @title = "Search by schools Applied"
+  @appliedschool=Application.where("school LIKE ?","%#{params[:schoolname]}%").paginate(:page => params[:page], :per_page => 20)
+  render 'schoolapplied'
+
+end
 
 
 
@@ -373,7 +395,7 @@ before_action :check_session, :only => [:login, :create]
 
   end
   def name
-    @title="By Name"
+    @title="Search By Name"
     @all_mebers=Member.order('created_at DESC').paginate(:page => params[:page], :per_page => 20)
   end
   def commitschool

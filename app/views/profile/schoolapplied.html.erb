@@ -12,6 +12,15 @@
 					<h3 class="gdlr-item-title borderme">Members</h3>
 				</div>
 				</div> -->
+				<div>
+				<div class="gdlr-lms-instructor-title-wrapper">
+				<div class = "five columns">
+    <%=form_tag profile_searchschool_path,:class => 'gdlr-lms-form', :method => 'get' do |f| %>
+	     <%= text_field_tag 'schoolname' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;',:placeholder => 'Enter Username', :id => 'tags', :class => 'gdlr-lms-form'  %></div>
+	     <div class = "three columns">
+	     <%= submit_tag 'Search',:style => '    padding-bottom: 6%;color:white; background-color:#F7BD4F;    margin-left: 4%;' %>
+	<% end -%>
+              </div></div></div>
 				<div class="twelve columns">
 <div class="well">
 <div id='profind'>
@@ -25,7 +34,9 @@
 							<th id ="th"colspan="2">Last Updated</th>
 						</tr>
 
-
+			<% unless @updates.nil? %>
+				
+			
 							
 			<% @updates.each do |update| %>
 							<tr>
@@ -57,6 +68,40 @@
 						
 							</tr>
 			<% end %>
+			<% else %>
+
+				<% @appliedschool.each do |update| %>
+							<tr>
+						<td colspan="3" style="padding:10px">
+							<%= Member.find(update.user_id).username  %>
+						</td> 
+
+												
+						<td colspan="3" style="padding:10px"><%a= update.school.split('-') %>
+							<%= a[0] %>- <%=a[1] %>
+						</td>	
+
+
+
+				
+			<td colspan="2" style="padding:10px;color:#453232;" >
+
+					<%= Member.find(update.user_id).gmat_score  %>
+			 </td>		
+			<td colspan="2" style="padding:10px;color:#453232;" > 
+				
+				<%= number_with_precision( Member.find(update.user_id).gpa , precision: 2)  %>
+			</td>	
+			<td colspan="2" style="padding:10px;color:#453232;" > 
+
+				<%= update.updated_at.strftime("%d-%m-%Y") %>
+				
+			</td>					
+						
+							</tr>
+			<% end %>
+
+			<% end %>
 						</tbody>
 						</table>
 						</div>
@@ -72,7 +117,7 @@
 		<div class="one columns"></div>	
 		<div class="clear"></div>
 		<div class="gdlr-item gdlr-divider-item"></div>
-		<%= will_paginate @all_mebers, :class => 'gdlr-pagination'%>
+		<!-- <%# = will_paginate  @appliedschool, :class => 'gdlr-pagination'%> -->
 		
 </div>
 </div>

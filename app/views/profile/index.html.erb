@@ -211,7 +211,7 @@ a{
               <%#binding.pry %>
                <div class="gdlr-lms-instructor-title-wrapper">
     <%=form_tag profile_viewusers_path, :method => 'get' do |f|  %>
-     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;',:placeholder => 'Enter member name', :id => 'tags'  %>
+     <%= text_field_tag 'username' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;',:placeholder => 'Enter Username', :id => 'tags'  %>
      <%= submit_tag 'Search',:style => '  padding: 2%;color:white; background-color:#F7BD4F;  margin-top: 4%;' %>
 <% end -%>
               </div>
@@ -285,7 +285,7 @@ a{
                     <% @slogo=School.find_by_id(sid[2]) %>
                     
                         
-              <% a=current_user.commitschool.split('-') %> <%= a[0] %> - <%= a[1] %>  On <%= current_user.updated_at.strftime("%m-%d-%Y")  %> 
+              <% a=current_user.commitschool.split('-') %> <%= a[0] %> - <%= a[1] %>  On <%= current_user.updated_at.strftime("%d-%m-%Y")  %> 
 
               <img alt="Icon" src="<%= @slogo.image.thumb('150x150').url %>" style="width: 78px; height: 41px;" />   </span>
                          <% else %>
@@ -336,7 +336,7 @@ a{
                                         <%= sname[0] %> - <%= sname[1] %>
                             <br>
                             <div style="  text-align: right;">
-                            <% if ad.status=="Accepted"%>
+                            <% if ad.status=="Accepted" || ad.status=="WL, Accepted" %>
                            
           <input type="hidden" id = "commitsname<%= k %>" value="<%= ad.school %>">
             <a href="javascript:void(0)" id="commit<%= k %>" style="color:green;  padding: 5px;">Commit</a><%end %>
@@ -377,13 +377,13 @@ a{
                             <% end %>
                                 </td>
 
-                            <td id="td"  style="font-size:9px; text-align: center;padding: 6px;"><%= ad.updated_at.strftime("%m/%d/%Y") %>
+                            <td id="td"  style="font-size:9px; text-align: center;padding: 6px;"><%= ad.updated_at.strftime("%d/%m/%Y") %>
                             </td>
                             <td id="td" style="font-size:9px; text-align: center;padding: 6px;">
                             <%if ad.interviewdate.nil? %>
                             <%="--" %>
                             <%else %>
-                            <%= ad.interviewdate.strftime("%m/%d/%Y") %> 
+                            <%= ad.interviewdate.strftime("%d/%m/%Y") %> 
                             <%end %>
                             </td>
 
@@ -393,7 +393,7 @@ a{
                               <%="--" %>
                               <%else %>
 
-                              <%= ad.received.strftime("%m/%d/%Y") %> 
+                              <%= ad.received.strftime("%d/%m/%Y") %> 
                               <%end %>
                              <%#binding.pry %></td>
 
@@ -403,7 +403,7 @@ a{
                                Not Decided
                                <%else %>
                               
-                                <%= ad.descion.strftime("%m/%d/%Y") %>
+                                <%= ad.descion.strftime("%d/%m/%Y") %>
                                <%end %> 
                                           </td>
 </tr>

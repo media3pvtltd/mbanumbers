@@ -47,7 +47,7 @@
 
                 <%a=Member.find_by_id(@topic.member_id) %>
                by <a href="<%=static_profile_path(a.username)%>" class="username-coloured"> <%=a.username %></a>
-               <i class="fa fa-arrow-right grey"></i></a> <br><%=  @topic.created_at.strftime("%m-%d-%Y") %><br>            
+               <i class="fa fa-arrow-right grey"></i></a> <br><%=  @topic.created_at.strftime("%d-%m-%Y") %><br>            
 
               </span> 
               <% else %>
