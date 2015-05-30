@@ -14,13 +14,16 @@
 				</div> -->
 				<div>
 				<div class="gdlr-lms-instructor-title-wrapper">
+		<%=form_tag profile_searchschool_path,:class => 'gdlr-lms-form', :method => 'get' do |f| %>
 				<div class = "five columns">
-    <%=form_tag profile_searchschool_path,:class => 'gdlr-lms-form', :method => 'get' do |f| %>
+    
 	     <%= text_field_tag 'schoolname' , "",:style => 'color:black; background-color:white; border:1px solid;border-color: #D7D1D1;border-radius: 4px;',:placeholder => 'Enter School Name', :id => 'tags', :class => 'gdlr-lms-form'  %></div>
 	     <div class = "three columns">
-	     <%= submit_tag 'Search',:style => '    padding-bottom: 6%;color:white; background-color:#F7BD4F;    margin-left: 4%;' %>
-	<% end -%>
-              </div></div></div>
+	     <%= submit_tag 'Search',:style => '    padding-bottom: 6%;color:white; background-color:#F7BD4F; margin-left: 4%; margin-top: 1px;' %>
+	
+         </div>
+         <% end -%>
+        </div></div>
 				<div class="twelve columns">
 <div class="well">
 <div id='profind'>
