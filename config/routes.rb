@@ -69,7 +69,7 @@
   get 'members/index'
   
   post 'subscribes/subscribe' 
-  get 'subscribes/confirm/:token' => 'subscribes#confirm'
+  get 'subscribes/confirm/:token' => 'subscribes#confirm', as: 'subscribes_confirm'
 
   post 'subscribes/submitcontact'
   get 'subscribes/contactus'
